@@ -1,0 +1,47 @@
+{
+    "name": "zeta(8)",
+    "reference": null,
+    "description": "This calculates Li_8(1) = zeta(8)",
+    "author": "Chris Glosser",
+    "version": "1.0",
+    "update_log": [
+        {
+            "timestamp": "2025-02-05T15:14:26.835033",
+            "message": "Initial Train"
+        }
+    ],
+    "tolerance": 1e-14,
+    "min_depth": 1,
+    "max_depth": 50,
+    "tree": {
+        "a": 0,
+        "b": 1,
+        "depth": 0,
+        "tol": 1e-14,
+        "error": 1.3322676295501878e-15,
+        "integral": 1.0040773561979468,
+        "method": "Gauss-Laguerre",
+        "left": {
+            "a": 0,
+            "b": 0.5,
+            "depth": 1,
+            "tol": 5e-15,
+            "error": 1.3322676295501878e-15,
+            "integral": 1.0040757705967027,
+            "method": "Gauss-Laguerre",
+            "left": null,
+            "right": null
+        },
+        "right": {
+            "a": 0.5,
+            "b": 1,
+            "depth": 1,
+            "tol": 5e-15,
+            "error": 1.1434944787933055e-20,
+            "integral": 1.585601244122289e-06,
+            "method": "Gauss-Legendre",
+            "left": null,
+            "right": null
+        }
+    }
+}
