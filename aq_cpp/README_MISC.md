@@ -1,7 +1,12 @@
 # Polylog Test Module
 
 ## Overview
-The `PolyTest` module implements the Borwein, Borwein & Girgensohn integral representation of the polylogarithm function $ Li_s(z) $. It provides an integrand function, `polylog_integrand`, and a wrapper mechanism for evaluating the function based on the parameters $ s $ and $ z $.
+The `PolyTest` module implements the Borwein, Borwein & Girgensohn integral representation of the polylogarithm function, 
+$$ 
+\mathrm{Li}_s(z) 
+$$
+
+It provides an integrand function, `polylog_integrand`, and a wrapper mechanism for evaluating the function based on the parameters  s  and  z .
 
 ## Files
 - **polylog_port.hpp**: Header file defining the function interfaces.
@@ -14,8 +19,9 @@ The `PolyTest` module implements the Borwein, Borwein & Girgensohn integral repr
   double polylog_integrand(int s, double z, double t);
   ```
   - Computes the integrand in the integral representation of the polylogarithm function using the Borwein, Borwein & Girgensohn representation:
+
 $$
-f(s,z; t) = \frac{z}{s!} \cdot \frac{\ln^s\left[ 1 \over t \right]}{1-zt} 
+f(s,z; t) = \frac{z}{s!} \cdot \frac{\ln^s\left[ \frac{1}  {t} \right]}{1-zt} 
 $$
 
 - **Wrapper Function: `polylog_wrapper`**:
