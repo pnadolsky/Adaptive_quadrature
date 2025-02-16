@@ -1,4 +1,4 @@
-# PolyTest Module
+# Polylog Test Module
 
 ## Overview
 The `PolyTest` module implements the Borwein, Borwein & Girgensohn integral representation of the polylogarithm function $ Li_s(z) $. It provides an integrand function, `polylog_integrand`, and a wrapper mechanism for evaluating the function based on the parameters $ s $ and $ z $.
