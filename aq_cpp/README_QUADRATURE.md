@@ -244,7 +244,7 @@ virtual double transformVariable(double t) const override;
 ```
 - Implements a transformation to map nodes to the interval `[lower, upper]`.
 - Uses an exponential transformation to adapt integration points to singular behavior.
-- The form of the transformation depends on the vaule of $\alpha$:
+- The form of the transformation depends on the value of $\alpha$:
 $$
 x(t) = a \cdot (1-z) + b \cdot z, 
 $$
