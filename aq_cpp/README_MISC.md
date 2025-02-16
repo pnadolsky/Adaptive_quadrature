@@ -1,4 +1,6 @@
-# Polylog Test Module
+# Miscellaneous things
+
+This README documents miscellaneous code in this library such as helper functions, test functions, etc.
 
 ## Overview
 The `PolyTest` module implements the Borwein, Borwein & Girgensohn integral representation of the polylogarithm function, 
