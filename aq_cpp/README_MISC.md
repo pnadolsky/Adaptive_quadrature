@@ -2,6 +2,7 @@
 
 ## Overview
 The `PolyTest` module implements the Borwein, Borwein & Girgensohn integral representation of the polylogarithm function, 
+
 $$ 
 \mathrm{Li}_s(z) 
 $$
