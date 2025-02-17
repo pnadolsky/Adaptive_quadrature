@@ -26,11 +26,15 @@ AdaptiveGaussTree(
     double lower, double upper, double tol, int minD, int maxD,
     int n1, int n2,
     double alphaA, double alphaB, bool singularA, bool singularB,
-    WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2);
+    WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
+    std::string name="Project", std::string author="Author",  std::string description="project description", 
+    std::string reference="references", std::string version="1.0", update_log_message="Initial Train" 
+    );
 ```
 - See README_QUADRATURE for information about ParamMap
 - Initializes the quadrature tree based on user-defined parameters.
 - Uses `WeightsLoader` instances to provide quadrature weights.
+- Now includes optional json header fields for project name, author, references, version, and project description
 
 2. **From a JSON File and a Function to Integrate:**
 ```cpp
@@ -47,6 +51,10 @@ AdaptiveGaussTree(
   - Saves the tree structure, computed integrals, and metadata to a JSON file.
 - `void load_from_json(std::string filename);`
   - Loads a quadrature tree from a JSON file.
+- `void add_update_log(const std::string& message)`
+  - add an entry to the update log
+- `void print_update_log()`
+  - prints the update log
 
 ##### **Tree Node Structure**
 Each node in the tree represents an interval of the integration domain and contains:

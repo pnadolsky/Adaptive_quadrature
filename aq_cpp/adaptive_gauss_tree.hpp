@@ -12,12 +12,113 @@
 #include <unordered_map>
 #include <variant>
 #include <optional>
+#include <vector>
+#include <utility>
+#include <ctime>
 
 using json = nlohmann::ordered_json;
 
-
 class AdaptiveGaussTree {
-public:
+    public:
+    // Constructor from parameters
+    AdaptiveGaussTree(
+        std::function<double(ParamMap, double)> f,
+        double lower, double upper, double tol, int minD, int maxD,
+        int n1, int n2,  // Explicitly pass n1 and n2
+        double alphaA, double alphaB, bool singularA, bool singularB,
+        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
+        std::string name="Project", std::string author="Author",  std::string description="project description", 
+        std::string reference="references", std::string version="1.0", std::string update_log_message="Initial Train" 
+    )
+        : func(f), tolerance(tol), min_depth(minD), max_depth(maxD),
+          order1(n1), order2(n2),  // Explicitly set orders
+          alpha_a(alphaA), alpha_b(alphaB), a_singular(singularA), b_singular(singularB),
+          roots_legendre_n1(rl1), roots_legendre_n2(rl2),
+          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2),
+          name(name), author(author), description(description), reference(reference), version(version) {
+        
+        root = build_tree(lower, upper, 0, tol);
+        add_update_log(update_log_message);
+    }
+        
+    // Constructor from JSON file
+    AdaptiveGaussTree(
+        std::function<double(ParamMap, double)> f,
+        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename)
+        : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
+          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2) {
+        load_from_json(filename);
+    }
+    // Method to get the total integral and error
+    std::pair<double, double> get_integral_and_error() const {
+        return traverse_and_sum(root.get());
+    }
+
+    void add_update_log(const std::string& message) {
+        // Get current time
+        std::time_t now = std::time(nullptr);
+        char timestamp[20];
+        std::strftime(timestamp, sizeof(timestamp), "%Y-%m-%d %H:%M:%S", std::localtime(&now));
+    
+        // Append timestamped message
+        update_log.emplace_back(timestamp, message);
+    }
+
+    void save_to_json(std::string filename) {
+        json data;
+        // name(name), author(author), description(description), reference(reference), version(version)        
+        data["name"] = name;
+        data["reference"] = reference;
+        data["description"] = description;
+        data["author"] =author;
+        data["version"] = version;
+        data["tolerance"] = tolerance;
+        data["min_depth"] = min_depth;
+        data["max_depth"] = max_depth;
+        data["n1"] = order1;
+        data["n2"] = order2;
+        // Serialize update log
+        json log_json = json::array();
+        for (const auto& entry : update_log) {
+            log_json.push_back({{"timestamp", entry.first}, {"message", entry.second}});
+        }
+        data["update_log"] = log_json;        
+        data["tree"] = serialize_tree(root.get());
+        std::ofstream file(filename);
+        file << data.dump(4);
+    }
+
+    void load_from_json(std::string filename) {
+        std::ifstream file(filename);
+        json data;
+        file >> data;
+        name = data["name"];
+        reference=data["reference"];
+        description=data["description"];
+        author=data["author"];
+        version=data["version"];       
+        tolerance = data["tolerance"];
+        min_depth = data["min_depth"];
+        max_depth = data["max_depth"];
+        order1 = data["n1"];
+        order2 = data["n2"];
+        // Deserialize update log
+        update_log.clear();
+        if (data.contains("update_log")) {
+            for (const auto& entry : data["update_log"]) {
+                update_log.emplace_back(entry["timestamp"], entry["message"]);
+            }
+    }
+        root = deserialize_tree(data["tree"]);
+    }
+
+    void print_update_log() const {
+        for (const auto& entry : update_log) {
+            std::cout << "[" << entry.first << "] " << entry.second << std::endl;
+        }
+    }
+
+private:
     struct Node {
         double lower, upper;
         int depth;
@@ -31,7 +132,6 @@ public:
               error(0.0), result(0.0), left(nullptr), right(nullptr) {}
     };
 
-private:
     std::function<double(ParamMap, double)> func;
     double tolerance;
     int min_depth, max_depth;
@@ -48,42 +148,8 @@ private:
     std::string description;
     std::string author;
     std::string version;
+    std::vector<std::pair<std::string, std::string>> update_log;
 
-public:
-    // Constructor from parameters
-    AdaptiveGaussTree(
-        std::function<double(ParamMap, double)> f,
-        double lower, double upper, double tol, int minD, int maxD,
-        int n1, int n2,  // Explicitly pass n1 and n2
-        double alphaA, double alphaB, bool singularA, bool singularB,
-        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
-        std::string name="Project", std::string author="Author",  std::string description="project description", 
-        std::string reference="references", std::string version="1.0" 
-    )
-        : func(f), tolerance(tol), min_depth(minD), max_depth(maxD),
-          order1(n1), order2(n2),  // Explicitly set orders
-          alpha_a(alphaA), alpha_b(alphaB), a_singular(singularA), b_singular(singularB),
-          roots_legendre_n1(rl1), roots_legendre_n2(rl2),
-          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2),
-          name(name), author(author), description(description), reference(reference), version(version) {
-        
-        root = build_tree(lower, upper, 0, tol);
-    }
-    
-    
-    // Constructor from JSON file
-    AdaptiveGaussTree(
-        std::function<double(ParamMap, double)> f,
-        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename)
-        : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
-          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2) {
-        load_from_json(filename);
-    }
-    // Method to get the total integral and error
-    std::pair<double, double> get_integral_and_error() const {
-        return traverse_and_sum(root.get());
-    }
-private:
     std::unique_ptr<Node> build_tree(double lower, double upper, int depth, double tol) {
         bool use_laguerre = (lower == 0 && a_singular) || (upper == 1 && b_singular);
         std::unique_ptr<Quadrature> quadrature;
@@ -110,43 +176,6 @@ private:
         return node;
     }
 
-public:
-    void save_to_json(std::string filename) {
-        json data;
-        // name(name), author(author), description(description), reference(reference), version(version)        
-        data["name"] = name;
-        data["reference"] = reference;
-        data["description"] = description;
-        data["author"] =author;
-        data["version"] = version;
-        data["tolerance"] = tolerance;
-        data["min_depth"] = min_depth;
-        data["max_depth"] = max_depth;
-        data["n1"] = order1;
-        data["n2"] = order2;
-        data["tree"] = serialize_tree(root.get());
-        std::ofstream file(filename);
-        file << data.dump(4);
-    }
-
-    void load_from_json(std::string filename) {
-        std::ifstream file(filename);
-        json data;
-        file >> data;
-        name = data["name"];
-        reference=data["reference"];
-        description=data["description"];
-        author=data["author"];
-        version=data["version"];       
-        tolerance = data["tolerance"];
-        min_depth = data["min_depth"];
-        max_depth = data["max_depth"];
-        order1 = data["n1"];
-        order2 = data["n2"];
-        root = deserialize_tree(data["tree"]);
-    }
-
-private:
     json serialize_tree(Node* node) {
         if (!node) return nullptr;
         return {
@@ -181,6 +210,7 @@ private:
         
         return {left_integral + right_integral, left_error + right_error};
     }    
+    
 };
 
 #endif // ADAPTIVE_GAUSS_TREE_HPP
