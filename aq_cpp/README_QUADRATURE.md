@@ -44,8 +44,8 @@ Derived classes must implement the following virtual methods:
 #### `integrate`
 ```cpp
 virtual double integrate(
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-    std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) = 0;
+    std::function<double(ParamMap, double)> func,
+    ParamMap parameters) = 0;
 ```
 - This pure virtual function must be overridden to provide a numerical integration method.
 - Takes a function `func` as input, along with a set of parameters.
@@ -94,9 +94,7 @@ To create a new quadrature method, inherit from `Quadrature` and implement the `
 ```cpp
 class MyQuadratureMethod : public Quadrature {
 public:
-    double integrate(
-        std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-        std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) override {
+    double integrate( std::function<double(ParamMap, double)> func, ParamMap parameters) override {
         // Implement integration logic here
     }
 };
@@ -118,9 +116,7 @@ The `LegendreQuadrature` class overrides the following methods from `Quadrature`
 
 #### `integrate`
 ```cpp
-virtual double integrate(
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-    std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) override;
+virtual double integrate( std::function<double(ParamMap, double)> func, ParamMap parameters) override;
 ```
 - Implements numerical integration using Gauss-Legendre quadrature.
 - Evaluates the function at quadrature nodes and applies weight factors.
@@ -168,9 +164,7 @@ The `LaguerreQuadrature` class overrides the following methods from `Quadrature`
 
 #### `integrate`
 ```cpp
-virtual double integrate(
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-    std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) override;
+virtual double integrate( std::function<double(ParamMap, double)> func, ParamMap parameters) override;
 ```
 - Implements numerical integration using Gauss-Laguerre quadrature.
 - Evaluates the function at quadrature nodes and applies weight factors.
@@ -273,7 +267,7 @@ The `laguerre_singular_test.cpp` file provides test cases that:
 1. Load quadrature weights from `laguerre.json`.
 2. Define a singular test function such as:
    ```cpp
-   double singular_test_function(std::unordered_map<std::string, std::variant<int, double, std::string>> params, double x) {
+   double singular_test_function(ParamMap params, double x) {
        return std::log(x) / std::sqrt(x);
    }
    ```
