@@ -31,7 +31,7 @@ public:
     };
 
 private:
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func;
+    std::function<double(ParamMap, double)> func;
     double tolerance;
     int min_depth, max_depth;
     int order1, order2;
@@ -44,7 +44,7 @@ private:
 public:
     // Constructor from parameters
     AdaptiveGaussTree(
-        std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> f,
+        std::function<double(ParamMap, double)> f,
         double lower, double upper, double tol, int minD, int maxD,
         int n1, int n2,  // Explicitly pass n1 and n2
         double alphaA, double alphaB, bool singularA, bool singularB,
@@ -61,7 +61,7 @@ public:
     
     // Constructor from JSON file
     AdaptiveGaussTree(
-        std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> f,
+        std::function<double(ParamMap, double)> f,
         WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename)
         : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
           roots_laguerre_n1(ll1), roots_laguerre_n2(ll2) {

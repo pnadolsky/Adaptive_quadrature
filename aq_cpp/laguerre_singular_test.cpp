@@ -6,7 +6,7 @@
 #include "legendre_quadrature.hpp"
 
 // ✅ Updated test function: log(x) / sqrt(x)
-double singular_test_function(std::unordered_map<std::string, std::variant<int, double, std::string>> params, double x) {
+double singular_test_function(ParamMap params, double x) {
     if (x == 0.0) return 0.0;  // Avoid log(0) undefined case
     return std::log(x) / std::sqrt(x);
 //    return std::log(x);

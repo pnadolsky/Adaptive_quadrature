@@ -6,7 +6,7 @@
 int main() {
     try {
         // Define parameters as a map
-        std::unordered_map<std::string, std::variant<int, double, std::string>> params;
+        ParamMap params;
         params["s"] = 3;    // Integer exponent
         params["z"] = 0.5;  // Double input parameter
 

@@ -4,11 +4,11 @@
 #include "laguerre_quadrature.hpp"
 
 // Example function: exp(-x^2) for Laguerre integration
-double gaussian_function(std::unordered_map<std::string, std::variant<int, double, std::string>> params, double t) {
+double gaussian_function(ParamMap params, double t) {
     return std::exp(-t * t);
 }
 
-double gaussian_function_with_weight_included(std::unordered_map<std::string, std::variant<int, double, std::string>> params, double t) {
+double gaussian_function_with_weight_included(ParamMap params, double t) {
     return std::exp(t-t * t);
 }
 

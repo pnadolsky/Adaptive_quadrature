@@ -11,9 +11,7 @@ double LaguerreQuadrature::transformVariable(double t) const {
 }
 
 // Perform integration using two orders for error estimation
-double LaguerreQuadrature::integrate(
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-    std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) {
+double LaguerreQuadrature::integrate( std::function<double(ParamMap, double)> func, ParamMap parameters) {
 
     double integral1 = 0.0, integral2 = 0.0;
 

@@ -11,7 +11,7 @@ int main() {
         WeightsLoader loader("..\\model_json\\legendre.json");
 
         // Define function parameters
-        std::unordered_map<std::string, std::variant<int, double, std::string>> params;
+        ParamMap params;
         params["s"] = 2;
         params["z"] = 1.0;
 

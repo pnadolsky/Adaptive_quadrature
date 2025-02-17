@@ -10,9 +10,7 @@ double polylog_integrand(int s, double z, double t) {
 }
 
 // Wrapper function to evaluate and return updated parameters
-double  polylog_wrapper(
-    std::unordered_map<std::string,  std::variant<int, double, std::string>> parameters, 
-    double t) {
+double  polylog_wrapper( ParamMap parameters,  double t) {
     int s = std::get<int>(parameters["s"]);
     double z = std::get<double>(parameters["z"]);
     double result =  polylog_integrand(s, z, t);

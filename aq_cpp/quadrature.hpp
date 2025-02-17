@@ -8,6 +8,9 @@
 #include <optional>
 #include <string>
 
+using ParamType = std::variant<int, double, std::string>;
+using ParamMap = std::unordered_map<std::string, ParamType>;
+
 class Quadrature {
 protected:
     const WeightsLoader& weightsLoader;
@@ -25,11 +28,7 @@ public:
     Quadrature(const WeightsLoader& loader, int n1, int n2, std::optional<double> lower, std::optional<double> upper, std::string methodName);
 
     virtual ~Quadrature() = default;
-
-    virtual double integrate(
-        std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-        std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) = 0;
-
+    virtual double integrate( std::function<double(ParamMap, double)> func, ParamMap parameters) = 0;
     virtual double transformVariable(double t) const;
 
     // Getters 

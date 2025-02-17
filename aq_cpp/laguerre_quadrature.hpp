@@ -16,9 +16,7 @@ public:
     // Constructor with optional use_weight_function argument
     LaguerreQuadrature(const WeightsLoader& loader, int n1, int n2, bool use_weight_function = true);
 
-    double integrate(
-        std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> func,
-        std::unordered_map<std::string, std::variant<int, double, std::string>> parameters) override;
+    double integrate( std::function<double(ParamMap, double)> func, ParamMap parameters) override;
 
     // Laguerre maps [-1,1] to [0,∞) (no transformation needed)
     virtual double transformVariable(double t) const override;
