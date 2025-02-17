@@ -73,9 +73,10 @@ class AdaptiveGaussTree:
             integrate = lambda f, a, b, n: self._gauss_laguerre_integrate(f, self.b, self.b - a, self.alpha_b, n)
         else:
             integrate = self._gauss_legendre_integrate
-
-        I1 = integrate(self.f, a, b, self.n1)
-        I2 = integrate(self.f, a, b, self.n2)
+        #print(self.n1,' ',self.n2)
+        I1 = integrate(self.f, a, b, False)  # fixed
+        I2 = integrate(self.f, a, b, True)
+        #print(I1,' ',I2)
         error = abs(I2 - I1)
 
         node = self.Node(a, b, depth, tol, error, integral=I2, n1=self.n1, n2=self.n2, is_singular=(use_laguerre_a or use_laguerre_b))
@@ -236,7 +237,7 @@ class AdaptiveGaussTree:
         indent = "  " * level
         method = "Gauss-Laguerre" if node.is_singular else "Gauss-Legendre"
         print(f"{indent}Node ({method}): [{node.a}, {node.b}], Depth: {node.depth}, "
-              f"Integral: {node.integral:.10f}, Error: {node.error:.5e}")
+              f"Integral: {node.integral:.10f}, Error: {node.error:.20e}")
         if node.left:
             self.print_tree(node.left, level + 1)
         if node.right:
