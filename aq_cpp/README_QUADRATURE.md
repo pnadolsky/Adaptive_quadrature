@@ -30,6 +30,12 @@ The `Quadrature` module defines an abstract base class for numerical integration
 
 ### Files
 - **quadrature.hpp**: Header file defining the `Quadrature` abstract class, its methods, and protected data members.
+    - the header includes these definitions that are used extensively in the code in this library (almost everything includes the header for this class):  
+    ```cpp
+    using ParamType = std::variant<int, double, std::string>;
+    using ParamMap = std::unordered_map<std::string, ParamType>;
+    ```
+
 - **quadrature.cpp**: Implementation file containing shared functionality for derived quadrature classes.
 
 ### Virtual Methods to Overload
