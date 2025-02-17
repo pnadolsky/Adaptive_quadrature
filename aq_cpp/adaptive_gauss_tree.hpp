@@ -13,7 +13,8 @@
 #include <variant>
 #include <optional>
 
-using json = nlohmann::json;
+using json = nlohmann::ordered_json;
+
 
 class AdaptiveGaussTree {
 public:
@@ -81,9 +82,10 @@ private:
             quadrature = std::make_unique<LegendreQuadrature>(roots_legendre_n1, order1, order2, lower, upper);
         }
                 
-        double I1 = quadrature->integrate(func, {});
         double I2 = quadrature->integrate(func, {});
-        double err = std::abs(I2 - I1);
+ //       double I1 = quadrature->integrate(func, {});  
+ //       double err = I2-I1  // ChatGPT needs a vacay.
+        double err = quadrature->getError();
         
         auto node = std::make_unique<Node>(lower, upper, depth, tol, order1, order2, use_laguerre);
         node->result = I2;
