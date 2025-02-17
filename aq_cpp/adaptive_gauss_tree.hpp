@@ -42,6 +42,13 @@ private:
     WeightsLoader roots_legendre_n1, roots_laguerre_n1, roots_legendre_n2, roots_laguerre_n2;
     std::unique_ptr<Node> root;
 
+    // json header info
+    std::string name;
+    std::string reference;
+    std::string description;
+    std::string author;
+    std::string version;
+
 public:
     // Constructor from parameters
     AdaptiveGaussTree(
@@ -49,12 +56,16 @@ public:
         double lower, double upper, double tol, int minD, int maxD,
         int n1, int n2,  // Explicitly pass n1 and n2
         double alphaA, double alphaB, bool singularA, bool singularB,
-        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2)
+        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
+        std::string name="Project", std::string author="Author",  std::string description="project description", 
+        std::string reference="references", std::string version="1.0" 
+    )
         : func(f), tolerance(tol), min_depth(minD), max_depth(maxD),
           order1(n1), order2(n2),  // Explicitly set orders
           alpha_a(alphaA), alpha_b(alphaB), a_singular(singularA), b_singular(singularB),
           roots_legendre_n1(rl1), roots_legendre_n2(rl2),
-          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2) {
+          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2),
+          name(name), author(author), description(description), reference(reference), version(version) {
         
         root = build_tree(lower, upper, 0, tol);
     }
@@ -102,6 +113,12 @@ private:
 public:
     void save_to_json(std::string filename) {
         json data;
+        // name(name), author(author), description(description), reference(reference), version(version)        
+        data["name"] = name;
+        data["reference"] = reference;
+        data["description"] = description;
+        data["author"] =author;
+        data["version"] = version;
         data["tolerance"] = tolerance;
         data["min_depth"] = min_depth;
         data["max_depth"] = max_depth;
@@ -116,6 +133,11 @@ public:
         std::ifstream file(filename);
         json data;
         file >> data;
+        name = data["name"];
+        reference=data["reference"];
+        description=data["description"];
+        author=data["author"];
+        version=data["version"];       
         tolerance = data["tolerance"];
         min_depth = data["min_depth"];
         max_depth = data["max_depth"];
