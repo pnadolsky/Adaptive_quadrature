@@ -22,19 +22,20 @@ This class manages the adaptive quadrature process and stores results in a hiera
 1. **From Parameters and an Function to Integrate:**
 ```cpp
 AdaptiveGaussTree(
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> f,
+    std::function<ParamMap, double)> f,
     double lower, double upper, double tol, int minD, int maxD,
     int n1, int n2,
     double alphaA, double alphaB, bool singularA, bool singularB,
     WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2);
 ```
+- See README_QUADRATURE for information about ParamMap
 - Initializes the quadrature tree based on user-defined parameters.
 - Uses `WeightsLoader` instances to provide quadrature weights.
 
 2. **From a JSON File and a Function to Integrate:**
 ```cpp
 AdaptiveGaussTree(
-    std::function<double(std::unordered_map<std::string, std::variant<int, double, std::string>>, double)> f,
+    std::function<double(ParamMap, double)> f,
     WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename);
 ```
 - Loads a previously saved quadrature tree from a JSON file.
@@ -63,7 +64,7 @@ Each node in the tree represents an interval of the integration domain and conta
 #include <iostream>
 
 // Example function: log(x) / sqrt(x)
-double test_function(std::unordered_map<std::string, std::variant<int, double, std::string>> params, double x) {
+double test_function(ParamMap params, double x) {
     return x > 0.0 ? std::log(x) / std::sqrt(x) : 0.0;
 }
 
