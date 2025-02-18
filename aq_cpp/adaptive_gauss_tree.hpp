@@ -8,6 +8,7 @@
 #include "json.hpp"
 #include <iostream>
 #include <fstream>
+#include <filesystem> // For checking file existence
 #include <memory>
 #include <unordered_map>
 #include <variant>
@@ -66,7 +67,12 @@ class AdaptiveGaussTree {
         update_log.emplace_back(timestamp, message);
     }
 
-    void save_to_json(std::string filename) {
+    void save_to_json(std::string filename, bool overwrite = false) {
+        // Check if the file exists
+        if (std::filesystem::exists(filename) && !overwrite) {
+            std::cerr << "File \"" << filename << "\" exists. Set overwrite = true to overwrite." << std::endl;
+            return;
+        }
         json data;
         // name(name), author(author), description(description), reference(reference), version(version)        
         data["name"] = name;
