@@ -27,6 +27,7 @@ class AdaptiveGaussTree {
         int n1, int n2,  // Explicitly pass n1 and n2
         double alphaA, double alphaB, bool singularA, bool singularB,
         WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
+        ParamMap args={},
         std::string name="Project", std::string author="Author",  std::string description="project description", 
         std::string reference="references", std::string version="1.0", std::string update_log_message="Initial Train" 
     )
@@ -35,6 +36,7 @@ class AdaptiveGaussTree {
           alpha_a(alphaA), alpha_b(alphaB), a_singular(singularA), b_singular(singularB),
           roots_legendre_n1(rl1), roots_legendre_n2(rl2),
           roots_laguerre_n1(ll1), roots_laguerre_n2(ll2),
+          args(args),
           name(name), author(author), description(description), reference(reference), version(version) {
         
         root = build_tree(lower, upper, 0, tol);
@@ -44,9 +46,9 @@ class AdaptiveGaussTree {
     // Constructor from JSON file
     AdaptiveGaussTree(
         std::function<double(ParamMap, double)> f,
-        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename)
+        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename,ParamMap args={} )
         : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
-          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2) {
+          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2), args(args) {
         load_from_json(filename);
     }
     // Method to get the total integral and error
@@ -138,6 +140,7 @@ private:
     int order1, order2;
     bool a_singular, b_singular;
     double alpha_a, alpha_b;
+    ParamMap args;
     
     WeightsLoader roots_legendre_n1, roots_laguerre_n1, roots_legendre_n2, roots_laguerre_n2;
     std::unique_ptr<Node> root;
@@ -159,7 +162,7 @@ private:
             quadrature = std::make_unique<LegendreQuadrature>(roots_legendre_n1, order1, order2, lower, upper);
         }
                 
-        double I2 = quadrature->integrate(func, {});
+        double I2 = quadrature->integrate(func, args);
  //       double I1 = quadrature->integrate(func, {});  
  //       double err = I2-I1  // ChatGPT needs a vacay.
         double err = quadrature->getError();

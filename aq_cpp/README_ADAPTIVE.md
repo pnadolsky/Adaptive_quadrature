@@ -27,6 +27,7 @@ AdaptiveGaussTree(
     int n1, int n2,
     double alphaA, double alphaB, bool singularA, bool singularB,
     WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
+    ParamMap args={},
     std::string name="Project", std::string author="Author",  std::string description="project description", 
     std::string reference="references", std::string version="1.0", update_log_message="Initial Train" 
     );
@@ -40,7 +41,7 @@ AdaptiveGaussTree(
 ```cpp
 AdaptiveGaussTree(
     std::function<double(ParamMap, double)> f,
-    WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename);
+    WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, ParamMap args={},std::string filename);
 ```
 - Loads a previously saved quadrature tree from a JSON file.
 
@@ -97,7 +98,7 @@ int main() {
 Note that it should be ok to pass the same WeightsLoader for the same quadrature types (e.g. laguerre_n1, laguerre_n2).
 ### Running the Test
 ```sh
- g++ -o adaptive_test adaptive_test.cpp  weights_loader.cpp legendre_quadrature.cpp laguerre_singular_endpoint.cpp laguerre_quadrature.cpp quadrature.cpp  -std=c++17 
+ g++ -o adaptive_test adaptive_test.cpp  weights_loader.cpp legendre_quadrature.cpp laguerre_singular_endpoint.cpp laguerre_quadrature.cpp quadrature.cpp polylog_port.cpp -std=c++17 
  ./adaptive_test
 ```
 ##  Batch Integration

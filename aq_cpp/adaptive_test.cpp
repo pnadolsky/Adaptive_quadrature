@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "adaptive_gauss_tree.hpp"
+#include "polylog_port.hpp"
 
 // Example function: log(x) / sqrt(x)
 double test_function(ParamMap params, double x) {
@@ -50,6 +51,22 @@ int main() {
         auto [integral4, error4] = loaded_tree_3.get_integral_and_error();
         std::cout << "Loaded Integral (from python output): " << integral4 << "\n";
         std::cout << "Loaded Estimated Error (from python output): " << error4 << "\n";             
+
+
+        // Create AdaptiveGaussTree instance with parameters (e.g. polylog_wrapper)
+        ParamMap poly_args;
+        poly_args["s"] = 2;    // dilog
+        poly_args["z"] = 1.0;  // zeta(2)
+
+        AdaptiveGaussTree poly_tree(polylog_wrapper, 0.0, 1.0, 1e-12, 2, 10, // min amnd max depth
+            100, 150,  // Pass explicit n1 and n2
+            0.0, 0.0, true, false,
+            legendre_n1, legendre_n2, laguerre_n1, laguerre_n2,
+            poly_args  // <-------------------   pass optional args at the end !
+        );
+        auto [integral5, error5] = poly_tree.get_integral_and_error();
+        std::cout << "Polylog Integral (e.g. zeta(2)): " << integral5 << "\n";
+        std::cout << "Loaded Estimated Error: ~ < 1-^-12" << error5 << "\n";   
 
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
