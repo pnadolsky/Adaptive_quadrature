@@ -224,28 +224,9 @@ private:
 
 using QuadCollection = std::unordered_map<ParamMap, std::unique_ptr<AdaptiveGaussTree>, ParamMapHash, ParamMapEqual>;
 
-std::ostream& operator<<(std::ostream& os, const AdaptiveGaussTree& tree) {
-    auto [integral, error] = tree.get_integral_and_error();
-    os << "( integral: " << integral << ", error: " << error << " )";
-    return os;
-};
-
-void printQuadCollectionKeys(const QuadCollection& quadColl) {
-       for (const auto& [key, _] : quadColl) {
-           std::cout << key << std::endl;
-       }
-    };
-   
-void printQuadCollectionResults(const QuadCollection& quadColl) {
-          for (const auto& [key, val] : quadColl) {
-              std::cout << key << *val<<std::endl;
-          }
-      };
-   
-
 
 //overload to print AdaptiveGaussTree:  (integral, error)
 
-
+std::ostream& operator<<(std::ostream& os, const AdaptiveGaussTree& tree);
 
 #endif // ADAPTIVE_GAUSS_TREE_HPP
