@@ -11,10 +11,11 @@
 #include <fstream>
 #include <variant>
 #include <functional>
+#include <algorithm>
 
 using json = nlohmann::ordered_json;
-//using ParamCollection = std::unordered_map<std::string, std::variant<std::vector<int>, std::vector<double>, std::vector<std::string>>>;
-
+// using ParamCollection = std::map<std::string, std::variant<std::vector<int>, std::vector<double>, std::vector<std::string>>>;
+// using  QuadCollection = std::unordered_map<ParamMap, std::unique_ptr<AdaptiveGaussTree>, ParamMapHash, ParamMapEqual> 
 class AdaptiveGaussTreeBatch {
 private:
     QuadCollection quad_coll;
@@ -47,6 +48,13 @@ private:
         update_log.emplace_back(timestamp, message);
     }
 
+    bool compareParamMaps(const ParamMap& a, const ParamMap& b);    // Comparator for sorting based on "keys"
+    void sortResults();                                             // Sorting function
+    static bool compareVariant(const ParamType& a, const ParamType& b);    // Function to compare std::variant<int, double, std::string>
+
+    // Helper function to rank types for sorting (int < double < string)    
+    template <typename T> static int getTypeRank();
+
 public:
     AdaptiveGaussTreeBatch(
         std::function<double(ParamMap, double)> func,
@@ -73,7 +81,10 @@ public:
             keys.push_back(pair.first);
         }
         std::vector<size_t> indices(keys.size(), 0);
+        // printKeys_internal(); 
         generate_combinations(keys, parameters, indices, results);
+        sortResults();
+//        printKeys_internal(); 
         for (const auto& combo : results) {
             quad_coll[combo]= std::make_unique<AdaptiveGaussTree>(
                 func, lower, upper, tol, min_depth, max_depth, n1, n2,  
@@ -86,46 +97,83 @@ public:
         }
     }
 
-    void printKeys() {
-        for (const auto& [key, _] : quad_coll) {
-            std::cout << key << std::endl;
-        }
-     };
-    
-    void printResults() {
-           for (const auto& [key, val] : quad_coll) {
-               std::cout << key << *val<<std::endl;
+
+    void printCollection() {
+           for (const auto& result : results) {
+               std::cout << result << *quad_coll[result] <<std::endl;
            }
-       };
+       };   
 
+    const QuadCollection& getCollection() const { return quad_coll; };
 
-/*
-    void save_to_json(const std::string& filename) {
+    void save_to_json(const std::string & filename, bool overwrite = false, bool write_roots=false, bool write_trees =true) {
         json data;
-        data["update_log"] = update_log;
-        for (const auto& [key, val_map] : results) {
-            for (const auto& [val, tree] : val_map) {
-                data["parameters"][key][val] = tree->get_integral_and_error();
-            }
+    
+        data["name"] = name;
+        data["author"] =author;
+        data["version"] =version;        
+        data["reference"] = reference;
+        data["description"] = description;
+        data["tol"] = tol;
+        data["min_depth"] = min_depth;
+        data["max_depth"] = max_depth;
+        data["n1"] = n1;
+        data["n2"] = n2;
+        data["a_singular"] = a_singular ;
+        data["b_singular"] = b_singular;
+        data["write_trees"] = write_trees;
+        // Serialize update log
+        json log_json = json::array();
+        for (const auto& entry : update_log) {
+            log_json.push_back({{"timestamp", entry.first}, {"message", entry.second}});
         }
+        data["update_log"] = log_json;
+        // Serialize weights if requested.
+        if (write_roots) {
+            data["legendre_roots_n1"] = {legendre_n1.getNodes(n1), legendre_n1.getWeights(n1)};
+            data["laguerre_roots_n1"] = {laguerre_n1.getNodes(n1), laguerre_n1.getWeights(n1)};
+            data["legendre_roots_n2"] = {legendre_n2.getNodes(n2), legendre_n2.getWeights(n2)};
+            data["laguerre_roots_n2"] = {laguerre_n2.getNodes(n2), laguerre_n2.getWeights(n2)};
+        }         
+        data["parameters"] = parameter_serializer(write_trees);
         std::ofstream file(filename);
-        file << data.dump(4);
-    }
-*/
-/*
-    void load_from_json(const std::string& filename, WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2) {
-        std::ifstream file(filename);
-        json data;
-        file >> data;
-        update_log = data["update_log"].get<std::vector<std::pair<std::string, std::string>>>();
-        for (auto& [key, val_map] : data["parameters"].items()) {
-            for (auto& [val, _] : val_map.items()) {
-                ParamMap param_map = {{key, val}};
-                results[key][val] = std::make_unique<AdaptiveGaussTree>(func, rl1, rl2, ll1, ll2, filename, param_map);
+        file << data.dump(4);        
+    }; 
+
+
+
+    json parameter_serializer(bool dump_nodes = false) {
+        json result;
+    
+        for (const auto& [param_map, tree_ptr] : quad_coll) {
+            json* current = &result;  // Pointer to navigate the JSON structure
+    
+            for (const auto& key : keys) {
+                auto it = param_map.find(key);
+                if (it == param_map.end()) continue; // Skip if key not found
+    
+                // Convert variant value to a string key (for hierarchy)
+                std::string key_value;
+                if (std::holds_alternative<int>(it->second)) {
+                    key_value = std::to_string(std::get<int>(it->second));
+                } else if (std::holds_alternative<double>(it->second)) {
+                    key_value = std::to_string(std::get<double>(it->second));
+                } else if (std::holds_alternative<std::string>(it->second)) {
+                    key_value = std::get<std::string>(it->second);
+                }
+    
+                // Ensure parameter label exists in JSON
+                current = &((*current)[key]);  // Create or navigate label (e.g., "s", "z")
+                current = &((*current)[key_value]);  // Create/navigate value under label
             }
+    
+            // Assign the serialized tree to the final position
+            (*current)["tree"] = tree_ptr->get_tree_serialized(dump_nodes);
         }
+    
+        return result;
     }
-*/
+    
 
 };
 

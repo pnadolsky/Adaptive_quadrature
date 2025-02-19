@@ -31,12 +31,12 @@ int main() {
     ParamMap test;
     test["s"] = 2; // s[0]
     test["z"] = 1.0;  // z[9]  
-    test["lab"] = "one"; // some label
+//    test["lab"] = "one"; // some label
     std::cout <<"Some parameter vals from our vectors:\t" << s[8] <<'\t'<<z[9]<<std::endl;
     std::cout <<"Map values:\t" << test["s"] <<'\t'<< test["z"] <<std::endl;
     // Store them in an unordered_map
-    ParamCollection params;
-    params["lab"] = l;    
+    ParamCollection params;  // last in first out
+//    params["lab"] = l;    
     params["s"] = s;
     params["z"] = z;
 
@@ -48,10 +48,10 @@ int main() {
         params      
     );
     auto stop = std::chrono::high_resolution_clock::now();
-    batch.printResults();
- 
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);    
+     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);    
     std::cout << "Time to generate in milliseconds: \t" << duration.count() <<" ms"<<std::endl;
-
+    batch.printCollection();
+    //  void save_to_json(const std::string & filename, bool overwrite = false, bool write_roots=false, bool write_trees =true)
+    batch.save_to_json("test.json", true,  true,  true );
     return 0;
 }

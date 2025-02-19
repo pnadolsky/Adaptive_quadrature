@@ -67,7 +67,7 @@ class AdaptiveGaussTree {
         update_log.emplace_back(timestamp, message);
     }
 
-    void save_to_json(std::string filename, bool overwrite = false) {
+    void save_to_json(std::string filename, bool overwrite = false, bool dump_log = false) {
         // Check if the file exists
         if (std::filesystem::exists(filename) && !overwrite) {
             std::cerr << "File \"" << filename << "\" exists. Set overwrite = true to overwrite." << std::endl;
@@ -125,7 +125,9 @@ class AdaptiveGaussTree {
             std::cout << "[" << entry.first << "] " << entry.second << std::endl;
         }
     }
-
+    json get_tree_serialized(bool dump_nodes = false){
+        return serialize_tree(root.get(), dump_nodes);
+    }
 private:
     struct Node {
         double lower, upper;
@@ -185,8 +187,17 @@ private:
         return node;
     }
 
-    json serialize_tree(Node* node) {
+    json serialize_tree(Node* node, bool dump_nodes = false) {
         if (!node) return nullptr;
+        if (dump_nodes) return {
+            {"a", node->lower},
+            {"b", node->upper},
+            {"depth", node->depth},
+            {"tol", node->tolerance},
+            {"error", node->error},
+            {"integral", node->result},
+            {"method", node->is_singular ? "Gauss-Laguerre" : "Gauss-Legendre"}            
+        };
         return {
             {"a", node->lower},
             {"b", node->upper},
