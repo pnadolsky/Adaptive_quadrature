@@ -34,8 +34,11 @@ The `Quadrature` module defines an abstract base class for numerical integration
     ```cpp
     using ParamType = std::variant<int, double, std::string>;
     using ParamMap = std::unordered_map<std::string, ParamType>;
+    using ParamCollection = std::unordered_map<std::string, std::variant<std::vector<int>, std::vector<double>, std::vector<std::string>>>; 
     ```
-
+    - in addition to these, 
+        - ```operator<<``` is overloaded to print ParamType and ParamMaps to ostreams.
+        - Hashing and equality structs are provided to assist the functionality of building maps with AdaptiveQuadrature trees in them (see adaptive_gauss_tree.hpp for more details).
 - **quadrature.cpp**: Implementation file containing shared functionality for derived quadrature classes.
 
 ### Virtual Methods to Overload

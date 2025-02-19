@@ -13,6 +13,13 @@ The `AdaptiveGaussTree` module implements an adaptive quadrature method to numer
 - Utilizes **Gauss-Legendre** and **Gauss-Laguerre** quadrature methods.
 - Can construct the tree using direct function parameters or load from a JSON file.
 - Saves computed integration results to a JSON file.
+- Defines **QuadCollection**:  
+```cpp 
+using QuadCollection = std::unordered_map<ParamMap, std::unique_ptr<AdaptiveGaussTree>, ParamMapHash, ParamMapEqual>;
+```
+- Overloads **operator<<** to print integral and error to ostreams
+- **void printQuadCollectionKeys**:  print a list of batch keys.  This will be moved to adaptive_gauss_batch when it is functional.
+- **void printQuadCollectionResults**: prints a list of keys and integral results.   This will be moved to adaptive_gauss_batch when it is functional.
 
 ### Class Structure
 #### **AdaptiveGaussTree**
@@ -48,8 +55,8 @@ AdaptiveGaussTree(
 ##### **Methods**
 - `std::pair<double, double> get_integral_and_error() const;`
   - Returns the total integral and error by traversing the quadrature tree.
-- `void save_to_json(std::string filename);`
-  - Saves the tree structure, computed integrals, and metadata to a JSON file.
+- `void save_to_json(std::string filename, overwrite = False);`
+  - Saves the tree structure, computed integrals, and metadata to a JSON file  (set to True to overwrite file).
 - `void load_from_json(std::string filename);`
   - Loads a quadrature tree from a JSON file.
 - `void add_update_log(const std::string& message)`

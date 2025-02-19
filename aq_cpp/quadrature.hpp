@@ -8,10 +8,17 @@
 #include <optional>
 #include <string>
 
-using ParamType = std::variant<int, double, std::string>;
+using ParamType = std::variant<int, double, std::string>;  // allows for mutable parameter types
 using ParamMap = std::unordered_map<std::string, ParamType>;  // ParamMap: single set of values, e.g.:  {s: 1, z: 0.1, label: "A"}
 // ParamCollection:  labels and vectors of values , e.g.:  {s: {1,2,3}, z: {0.1,0.2}, label: {"A","B","C"}}
 using ParamCollection = std::unordered_map<std::string, std::variant<std::vector<int>, std::vector<double>, std::vector<std::string>>>; 
+
+std::ostream& operator<<(std::ostream& os, const ParamType& param);    //overload to print ParamType
+std::ostream& operator<<(std::ostream& os, const ParamMap& paramMap);  //overload to print ParamMap
+
+struct ParamTypeHash { std::size_t operator()(const ParamType& param) const;}; // Custom hasher for ParamType
+struct ParamMapHash { std::size_t operator()(const ParamMap& paramMap) const ;}; // Custom hasher for ParamMap
+struct ParamMapEqual { bool operator()(const ParamMap& lhs, const ParamMap& rhs) const ; }; // Custom equality for ParamMap 
 
 class Quadrature {
 protected:
