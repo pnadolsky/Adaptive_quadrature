@@ -14,11 +14,11 @@
     "write_trees": false,
     "update_log": [
         {
-            "timestamp": "2025-02-10T15:50:31.301086",
+            "timestamp": "2025-02-19T14:02:18.869257",
             "message": "Initial Batch Creation"
         },
         {
-            "timestamp": "2025-02-10T15:50:31.761167",
+            "timestamp": "2025-02-19T14:02:29.272153",
             "message": "making some changes"
         }
     ],
@@ -736,7 +736,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.347322419244847e-13,
                             "integral": -0.8224670334241146,
                             "method": "Gauss-Laguerre"
                         }
@@ -747,7 +747,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.3306690738754696e-14,
                             "integral": -0.752163179217263,
                             "method": "Gauss-Laguerre"
                         }
@@ -758,7 +758,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.08242361927114e-14,
                             "integral": -0.6797815878346822,
                             "method": "Gauss-Laguerre"
                         }
@@ -769,7 +769,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 7.960299086562372e-14,
                             "integral": -0.6051584023377062,
                             "method": "Gauss-Laguerre"
                         }
@@ -780,7 +780,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.941291737419306e-14,
                             "integral": -0.5281071740446673,
                             "method": "Gauss-Laguerre"
                         }
@@ -791,7 +791,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.659739592076221e-15,
                             "integral": -0.448414206923647,
                             "method": "Gauss-Laguerre"
                         }
@@ -802,7 +802,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.4988010832439613e-15,
                             "integral": -0.3658325775124503,
                             "method": "Gauss-Laguerre"
                         }
@@ -813,7 +813,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.2212453270876722e-15,
                             "integral": -0.2800743337595834,
                             "method": "Gauss-Laguerre"
                         }
@@ -824,7 +824,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.7755575615628914e-16,
                             "integral": -0.19080013777753596,
                             "method": "Gauss-Laguerre"
                         }
@@ -835,7 +835,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.5265566588595902e-16,
                             "integral": -0.09760523522932177,
                             "method": "Gauss-Laguerre"
                         }
@@ -857,7 +857,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.938893903907228e-17,
                             "integral": 0.10261779109939133,
                             "method": "Gauss-Laguerre"
                         }
@@ -868,7 +868,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.870681966755001e-14,
                             "integral": 0.2110037754397052,
                             "method": "Gauss-Laguerre"
                         }
@@ -879,7 +879,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.312195128226449e-12,
                             "integral": 0.32612951007547664,
                             "method": "Gauss-Laguerre"
                         }
@@ -890,7 +890,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.4410206361503697e-10,
                             "integral": 0.44928297447128274,
                             "method": "Gauss-Laguerre"
                         }
@@ -901,7 +901,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.6174086231733895e-09,
                             "integral": 0.5822405264650272,
                             "method": "Gauss-Laguerre"
                         }
@@ -912,7 +912,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.8788919076715445e-08,
                             "integral": 0.7275863077174549,
                             "method": "Gauss-Laguerre"
                         }
@@ -923,7 +923,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.382277656895695e-07,
                             "integral": 0.8893776243729503,
                             "method": "Gauss-Laguerre"
                         }
@@ -934,7 +934,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.023990667460623e-06,
                             "integral": 1.074794608096811,
                             "method": "Gauss-Laguerre"
                         }
@@ -945,7 +945,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 0.0001587735520716116,
                             "integral": 1.2997161383330011,
                             "method": "Gauss-Laguerre"
                         }
@@ -956,7 +956,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.661338147750939e-16,
                             "integral": 1.6449340668482275,
                             "method": "Gauss-Laguerre"
                         }
@@ -971,7 +971,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 7.934763956995994e-13,
                             "integral": -0.9015426773696972,
                             "method": "Gauss-Laguerre"
                         }
@@ -982,7 +982,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.483391518623648e-13,
                             "integral": -0.8186382015443653,
                             "method": "Gauss-Laguerre"
                         }
@@ -993,7 +993,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.7833291227352674e-13,
                             "integral": -0.7343713056344442,
                             "method": "Gauss-Laguerre"
                         }
@@ -1004,7 +1004,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.881784197001252e-14,
                             "integral": -0.6486663212852366,
                             "method": "Gauss-Laguerre"
                         }
@@ -1015,7 +1015,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.887379141862766e-15,
                             "integral": -0.561439534656835,
                             "method": "Gauss-Laguerre"
                         }
@@ -1026,7 +1026,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.4654943925052066e-14,
                             "integral": -0.47259784465889765,
                             "method": "Gauss-Laguerre"
                         }
@@ -1037,7 +1037,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.6058269965196814e-15,
                             "integral": -0.3820371029393106,
                             "method": "Gauss-Laguerre"
                         }
@@ -1048,7 +1048,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.996003610813204e-16,
                             "integral": -0.2896400341418315,
                             "method": "Gauss-Laguerre"
                         }
@@ -1059,7 +1059,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.0531133177191805e-16,
                             "integral": -0.1952735929310546,
                             "method": "Gauss-Laguerre"
                         }
@@ -1070,7 +1070,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-16,
                             "integral": -0.09878555018070023,
                             "method": "Gauss-Laguerre"
                         }
@@ -1092,7 +1092,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.608224830031759e-16,
                             "integral": 0.10128868447922316,
                             "method": "Gauss-Laguerre"
                         }
@@ -1103,7 +1103,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 7.185918526886326e-14,
                             "integral": 0.20532419573331065,
                             "method": "Gauss-Laguerre"
                         }
@@ -1114,7 +1114,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.1984415116426135e-12,
                             "integral": 0.3124001778928931,
                             "method": "Gauss-Laguerre"
                         }
@@ -1125,7 +1125,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.602052238235956e-11,
                             "integral": 0.42287782019144465,
                             "method": "Gauss-Laguerre"
                         }
@@ -1136,7 +1136,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.071257078829831e-10,
                             "integral": 0.5372131936080364,
                             "method": "Gauss-Laguerre"
                         }
@@ -1147,7 +1147,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.907187958901886e-09,
                             "integral": 0.6560025136326957,
                             "method": "Gauss-Laguerre"
                         }
@@ -1158,7 +1158,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.598618033734851e-08,
                             "integral": 0.7800639342421636,
                             "method": "Gauss-Laguerre"
                         }
@@ -1169,7 +1169,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.952508878667942e-07,
                             "integral": 0.9106058545033883,
                             "method": "Gauss-Laguerre"
                         }
@@ -1180,7 +1180,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.364231660840105e-06,
                             "integral": 1.0496588756265957,
                             "method": "Gauss-Laguerre"
                         }
@@ -1191,7 +1191,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.5543122344752192e-15,
                             "integral": 1.2020569031595965,
                             "method": "Gauss-Laguerre"
                         }
@@ -1206,7 +1206,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.475619957451272e-13,
                             "integral": -0.9470328294972479,
                             "method": "Gauss-Laguerre"
                         }
@@ -1217,7 +1217,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.103828801926284e-14,
                             "integral": -0.8564782887553402,
                             "method": "Gauss-Laguerre"
                         }
@@ -1228,7 +1228,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.470202400052585e-14,
                             "integral": -0.7651028720663139,
                             "method": "Gauss-Laguerre"
                         }
@@ -1239,7 +1239,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1379786002407855e-13,
                             "integral": -0.6728742689973324,
                             "method": "Gauss-Laguerre"
                         }
@@ -1250,7 +1250,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.794564910705958e-14,
                             "integral": -0.5797574970280339,
                             "method": "Gauss-Laguerre"
                         }
@@ -1261,7 +1261,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.348121697082206e-14,
                             "integral": -0.48571453783060736,
                             "method": "Gauss-Laguerre"
                         }
@@ -1272,7 +1272,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.9976021664879227e-15,
                             "integral": -0.39070390105141745,
                             "method": "Gauss-Laguerre"
                         }
@@ -1283,7 +1283,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.551115123125783e-16,
                             "integral": -0.2946800957867568,
                             "method": "Gauss-Laguerre"
                         }
@@ -1294,7 +1294,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.551115123125783e-17,
                             "integral": -0.1975929828245183,
                             "method": "Gauss-Laguerre"
                         }
@@ -1305,7 +1305,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.71445146547012e-17,
                             "integral": -0.09938697032175857,
                             "method": "Gauss-Laguerre"
                         }
@@ -1327,7 +1327,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.326672684688674e-17,
                             "integral": 0.10063775311987136,
                             "method": "Gauss-Laguerre"
                         }
@@ -1338,7 +1338,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.824718319833664e-14,
                             "integral": 0.2026055828608342,
                             "method": "Gauss-Laguerre"
                         }
@@ -1349,7 +1349,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.2830847495592934e-12,
                             "integral": 0.3059945353077568,
                             "method": "Gauss-Laguerre"
                         }
@@ -1360,7 +1360,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.0163981595544556e-11,
                             "integral": 0.41091056478308746,
                             "method": "Gauss-Laguerre"
                         }
@@ -1371,7 +1371,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.0958978996787891e-10,
                             "integral": 0.5174790616739015,
                             "method": "Gauss-Laguerre"
                         }
@@ -1382,7 +1382,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6869476926473226e-09,
                             "integral": 0.6258516695037137,
                             "method": "Gauss-Laguerre"
                         }
@@ -1393,7 +1393,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1411954270457159e-08,
                             "integral": 0.7362172409509824,
                             "method": "Gauss-Laguerre"
                         }
@@ -1404,7 +1404,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.658981988039159e-08,
                             "integral": 0.8488211913488399,
                             "method": "Gauss-Laguerre"
                         }
@@ -1415,7 +1415,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.937532525004727e-07,
                             "integral": 0.9640053738226345,
                             "method": "Gauss-Laguerre"
                         }
@@ -1426,7 +1426,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3322676295501878e-15,
                             "integral": 1.0823232337111404,
                             "method": "Gauss-Laguerre"
                         }
@@ -1441,7 +1441,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.508127370352668e-13,
                             "integral": -0.9721197704469114,
                             "method": "Gauss-Laguerre"
                         }
@@ -1452,7 +1452,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.4486636596730023e-13,
                             "integral": -0.8771870233926226,
                             "method": "Gauss-Laguerre"
                         }
@@ -1463,7 +1463,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.389199948993337e-13,
                             "integral": -0.7817870515531449,
                             "method": "Gauss-Laguerre"
                         }
@@ -1474,7 +1474,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.281464485866309e-14,
                             "integral": -0.6859068290524761,
                             "method": "Gauss-Laguerre"
                         }
@@ -1485,7 +1485,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.765254609153999e-14,
                             "integral": -0.5895324890748077,
                             "method": "Gauss-Laguerre"
                         }
@@ -1496,7 +1496,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.717648576819556e-15,
                             "integral": -0.49264922998110894,
                             "method": "Gauss-Laguerre"
                         }
@@ -1507,7 +1507,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.551115123125783e-15,
                             "integral": -0.3952412056178637,
                             "method": "Gauss-Laguerre"
                         }
@@ -1518,7 +1518,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.5543122344752192e-15,
                             "integral": -0.2972913960985427,
                             "method": "Gauss-Laguerre"
                         }
@@ -1529,7 +1529,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.7755575615628914e-16,
                             "integral": -0.1987814541714692,
                             "method": "Gauss-Laguerre"
                         }
@@ -1540,7 +1540,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-16,
                             "integral": -0.09969152064714756,
                             "method": "Gauss-Laguerre"
                         }
@@ -1562,7 +1562,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.220446049250313e-16,
                             "integral": 0.10031671621746158,
                             "method": "Gauss-Laguerre"
                         }
@@ -1573,7 +1573,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.5654144647214707e-14,
                             "integral": 0.20128459579070607,
                             "method": "Gauss-Laguerre"
                         }
@@ -1584,7 +1584,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.8663516832571077e-13,
                             "integral": 0.3029324080381154,
                             "method": "Gauss-Laguerre"
                         }
@@ -1595,7 +1595,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.619582494314045e-12,
                             "integral": 0.4052923013586877,
                             "method": "Gauss-Laguerre"
                         }
@@ -1606,7 +1606,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.631972500528491e-11,
                             "integral": 0.5084005792422696,
                             "method": "Gauss-Laguerre"
                         }
@@ -1617,7 +1617,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.1543455908101805e-10,
                             "integral": 0.6122987812486343,
                             "method": "Gauss-Laguerre"
                         }
@@ -1628,7 +1628,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.017590234297927e-09,
                             "integral": 0.7170352626429846,
                             "method": "Gauss-Laguerre"
                         }
@@ -1639,7 +1639,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.7147730447273375e-09,
                             "integral": 0.8226676637232413,
                             "method": "Gauss-Laguerre"
                         }
@@ -1650,7 +1650,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 7.737499529980596e-09,
                             "integral": 0.9292671963770347,
                             "method": "Gauss-Laguerre"
                         }
@@ -1661,7 +1661,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3322676295501878e-15,
                             "integral": 1.0369277551433722,
                             "method": "Gauss-Laguerre"
                         }
@@ -1676,7 +1676,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.7200464103316335e-13,
                             "integral": -0.9855510912974375,
                             "method": "Gauss-Laguerre"
                         }
@@ -1687,7 +1687,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.517009154549669e-14,
                             "integral": -0.8882128898377077,
                             "method": "Gauss-Laguerre"
                         }
@@ -1698,7 +1698,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.4202861936828413e-14,
                             "integral": -0.79061900558607,
                             "method": "Gauss-Laguerre"
                         }
@@ -1709,7 +1709,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.218847493575595e-14,
                             "integral": -0.692764409925221,
                             "method": "Gauss-Laguerre"
                         }
@@ -1720,7 +1720,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.964295475749168e-14,
                             "integral": -0.5946438206118468,
                             "method": "Gauss-Laguerre"
                         }
@@ -1731,7 +1731,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.27675647831893e-14,
                             "integral": -0.4962516784926493,
                             "method": "Gauss-Laguerre"
                         }
@@ -1742,7 +1742,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.831068712794149e-15,
                             "integral": -0.3975821208974526,
                             "method": "Gauss-Laguerre"
                         }
@@ -1753,7 +1753,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.220446049250313e-16,
                             "integral": -0.2986289510335941,
                             "method": "Gauss-Laguerre"
                         }
@@ -1764,7 +1764,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.7755575615628914e-16,
                             "integral": -0.19938560252006216,
                             "method": "Gauss-Laguerre"
                         }
@@ -1775,7 +1775,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-16,
                             "integral": -0.09984509794743038,
                             "method": "Gauss-Laguerre"
                         }
@@ -1797,7 +1797,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.163336342344337e-17,
                             "integral": 0.1001576468184988,
                             "method": "Gauss-Laguerre"
                         }
@@ -1808,7 +1808,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.773959005888173e-15,
                             "integral": 0.20063638653328522,
                             "method": "Gauss-Laguerre"
                         }
@@ -1819,7 +1819,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.270362255620057e-14,
                             "integral": 0.30144543787446265,
                             "method": "Gauss-Laguerre"
                         }
@@ -1830,7 +1830,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.461009670668318e-13,
                             "integral": 0.4025948017021641,
                             "method": "Gauss-Laguerre"
                         }
@@ -1841,7 +1841,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.034417327465235e-12,
                             "integral": 0.5040953978039897,
                             "method": "Gauss-Laguerre"
                         }
@@ -1852,7 +1852,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.2009172262471566e-11,
                             "integral": 0.6059592438068062,
                             "method": "Gauss-Laguerre"
                         }
@@ -1863,7 +1863,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 7.258893486294937e-11,
                             "integral": 0.7081996974195526,
                             "method": "Gauss-Laguerre"
                         }
@@ -1874,7 +1874,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6578471928596628e-10,
                             "integral": 0.8108318003444204,
                             "method": "Gauss-Laguerre"
                         }
@@ -1885,7 +1885,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6304446681658646e-10,
                             "integral": 0.9138728021042495,
                             "method": "Gauss-Laguerre"
                         }
@@ -1896,7 +1896,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.881784197001252e-16,
                             "integral": 1.0173430619844512,
                             "method": "Gauss-Laguerre"
                         }
@@ -1911,7 +1911,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.1582735598713043e-13,
                             "integral": -0.9925938199228328,
                             "method": "Gauss-Laguerre"
                         }
@@ -1922,7 +1922,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.454392162258955e-13,
                             "integral": -0.8939712555218012,
                             "method": "Gauss-Laguerre"
                         }
@@ -1933,7 +1933,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.204548151979907e-14,
                             "integral": -0.7952125635753498,
                             "method": "Gauss-Laguerre"
                         }
@@ -1944,7 +1944,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.7192471324942744e-14,
                             "integral": -0.6963158661933282,
                             "method": "Gauss-Laguerre"
                         }
@@ -1955,7 +1955,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.199040866595169e-14,
                             "integral": -0.5972792115629504,
                             "method": "Gauss-Laguerre"
                         }
@@ -1966,7 +1966,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.942890293094024e-15,
                             "integral": -0.49810056836200384,
                             "method": "Gauss-Laguerre"
                         }
@@ -1977,7 +1977,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.3306690738754696e-16,
                             "integral": -0.3987778194948637,
                             "method": "Gauss-Laguerre"
                         }
@@ -1988,7 +1988,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-16,
                             "integral": -0.2993087550319583,
                             "method": "Gauss-Laguerre"
                         }
@@ -1999,7 +1999,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-16,
                             "integral": -0.19969106420451305,
                             "method": "Gauss-Laguerre"
                         }
@@ -2010,7 +2010,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-16,
                             "integral": -0.09992232626840006,
                             "method": "Gauss-Laguerre"
                         }
@@ -2032,7 +2032,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3877787807814457e-16,
                             "integral": 0.10007858848258536,
                             "method": "Gauss-Laguerre"
                         }
@@ -2043,7 +2043,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.609823385706477e-15,
                             "integral": 0.2003162599767226,
                             "method": "Gauss-Laguerre"
                         }
@@ -2054,7 +2054,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.9040324872321435e-14,
                             "integral": 0.3007159990736051,
                             "method": "Gauss-Laguerre"
                         }
@@ -2065,7 +2065,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.297850715786808e-13,
                             "integral": 0.4012809744056577,
                             "method": "Gauss-Laguerre"
                         }
@@ -2076,7 +2076,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.822009541134321e-13,
                             "integral": 0.5020145633247097,
                             "method": "Gauss-Laguerre"
                         }
@@ -2087,7 +2087,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.8745005547771143e-12,
                             "integral": 0.6029203825750455,
                             "method": "Gauss-Laguerre"
                         }
@@ -2098,7 +2098,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.3158809859278335e-12,
                             "integral": 0.7040023273774196,
                             "method": "Gauss-Laguerre"
                         }
@@ -2109,7 +2109,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.1666227679779695e-12,
                             "integral": 0.8052646229013043,
                             "method": "Gauss-Laguerre"
                         }
@@ -2120,7 +2120,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.8640423366255163e-12,
                             "integral": 0.9067118953013444,
                             "method": "Gauss-Laguerre"
                         }
@@ -2131,7 +2131,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3322676295501878e-15,
                             "integral": 1.0083492773819254,
                             "method": "Gauss-Laguerre"
                         }
@@ -2146,7 +2146,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.228351168147128e-14,
                             "integral": -0.9962330018526503,
                             "method": "Gauss-Laguerre"
                         }
@@ -2157,7 +2157,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.8318679906315083e-14,
                             "integral": -0.8969382964078053,
                             "method": "Gauss-Laguerre"
                         }
@@ -2168,7 +2168,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.887379141862766e-15,
                             "integral": -0.7975724983822581,
                             "method": "Gauss-Laguerre"
                         }
@@ -2179,7 +2179,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 7.771561172376096e-15,
                             "integral": -0.6981349242680683,
                             "method": "Gauss-Laguerre"
                         }
@@ -2190,7 +2190,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.5503158452884236e-15,
                             "integral": -0.5986248696009965,
                             "method": "Gauss-Laguerre"
                         }
@@ -2201,7 +2201,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.774758283725532e-15,
                             "integral": -0.4990416076565585,
                             "method": "Gauss-Laguerre"
                         }
@@ -2212,7 +2212,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.7208456881689926e-15,
                             "integral": -0.3993843880116757,
                             "method": "Gauss-Laguerre"
                         }
@@ -2223,7 +2223,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.661338147750939e-16,
                             "integral": -0.29965243495135085,
                             "method": "Gauss-Laguerre"
                         }
@@ -2234,7 +2234,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.0531133177191805e-16,
                             "integral": -0.199844945695435,
                             "method": "Gauss-Laguerre"
                         }
@@ -2245,7 +2245,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-16,
                             "integral": -0.09996108841493304,
                             "method": "Gauss-Laguerre"
                         }
@@ -2267,7 +2267,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3877787807814457e-16,
                             "integral": 0.10003921646788277,
                             "method": "Gauss-Laguerre"
                         }
@@ -2289,7 +2289,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.7200464103316335e-15,
                             "integral": 0.3003558080197312,
                             "method": "Gauss-Laguerre"
                         }
@@ -2300,7 +2300,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6264767310758543e-14,
                             "integral": 0.400635174219285,
                             "method": "Gauss-Laguerre"
                         }
@@ -2311,7 +2311,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.684341886080802e-14,
                             "integral": 0.5009966590970532,
                             "method": "Gauss-Laguerre"
                         }
@@ -2322,7 +2322,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3600232051658168e-13,
                             "integral": 0.6014413823692077,
                             "method": "Gauss-Laguerre"
                         }
@@ -2333,7 +2333,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.1893598045608087e-13,
                             "integral": 0.7019705241415555,
                             "method": "Gauss-Laguerre"
                         }
@@ -2344,7 +2344,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.9528823003156504e-13,
                             "integral": 0.8025853330741997,
                             "method": "Gauss-Laguerre"
                         }
@@ -2355,7 +2355,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.1744385725905886e-14,
                             "integral": 0.9032871368455007,
                             "method": "Gauss-Laguerre"
                         }
@@ -2366,7 +2366,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3322676295501878e-15,
                             "integral": 1.0040773561979468,
                             "method": "Gauss-Laguerre"
                         }
@@ -2381,7 +2381,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.608224830031759e-14,
                             "integral": -0.9980942975416079,
                             "method": "Gauss-Laguerre"
                         }
@@ -2392,7 +2392,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.3647750424515834e-14,
                             "integral": -0.8984527619522259,
                             "method": "Gauss-Laguerre"
                         }
@@ -2403,7 +2403,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.3322676295501878e-14,
                             "integral": -0.7987745957675456,
                             "method": "Gauss-Laguerre"
                         }
@@ -2414,7 +2414,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.88418203051333e-15,
                             "integral": -0.6990595551177821,
                             "method": "Gauss-Laguerre"
                         }
@@ -2425,7 +2425,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-15,
                             "integral": -0.5993073903253694,
                             "method": "Gauss-Laguerre"
                         }
@@ -2436,7 +2436,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-16,
                             "integral": -0.4995178456076277,
                             "method": "Gauss-Laguerre"
                         }
@@ -2447,7 +2447,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.551115123125783e-16,
                             "integral": -0.3996906587533533,
                             "method": "Gauss-Laguerre"
                         }
@@ -2458,7 +2458,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.551115123125783e-16,
                             "integral": -0.2998255607698638,
                             "method": "Gauss-Laguerre"
                         }
@@ -2469,7 +2469,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.3306690738754696e-16,
                             "integral": -0.19992227549638097,
                             "method": "Gauss-Laguerre"
                         }
@@ -2480,7 +2480,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-16,
                             "integral": -0.09998051917881713,
                             "method": "Gauss-Laguerre"
                         }
@@ -2502,7 +2502,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-16,
                             "integral": 0.10001958244195519,
                             "method": "Gauss-Laguerre"
                         }
@@ -2513,7 +2513,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.885780586188048e-16,
                             "integral": 0.20007853771615192,
                             "method": "Gauss-Laguerre"
                         }
@@ -2524,7 +2524,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.43689570931383e-16,
                             "integral": 0.300177185213625,
                             "method": "Gauss-Laguerre"
                         }
@@ -2535,7 +2535,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.609024107869118e-15,
                             "integral": 0.4003158548887196,
                             "method": "Gauss-Laguerre"
                         }
@@ -2546,7 +2546,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 5.773159728050814e-15,
                             "integral": 0.5004948881059549,
                             "method": "Gauss-Laguerre"
                         }
@@ -2557,7 +2557,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.769962616701378e-15,
                             "integral": 0.6007146386174644,
                             "method": "Gauss-Laguerre"
                         }
@@ -2568,7 +2568,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.1102230246251565e-14,
                             "integral": 0.7009754737054574,
                             "method": "Gauss-Laguerre"
                         }
@@ -2579,7 +2579,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.8833827526759706e-15,
                             "integral": 0.8012777755388412,
                             "method": "Gauss-Laguerre"
                         }
@@ -2590,7 +2590,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.9984014443252818e-15,
                             "integral": 0.9016219428178109,
                             "method": "Gauss-Laguerre"
                         }
@@ -2601,7 +2601,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.7763568394002505e-15,
                             "integral": 1.002008392826085,
                             "method": "Gauss-Laguerre"
                         }
@@ -2616,7 +2616,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.0769163338864018e-14,
                             "integral": -0.9990395075982743,
                             "method": "Gauss-Laguerre"
                         }
@@ -2627,7 +2627,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.884981308350689e-15,
                             "integral": -0.8992207574028173,
                             "method": "Gauss-Laguerre"
                         }
@@ -2638,7 +2638,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 2.1094237467877974e-15,
                             "integral": -0.799383309975427,
                             "method": "Gauss-Laguerre"
                         }
@@ -2649,7 +2649,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 8.881784197001252e-16,
                             "integral": -0.6995270796447819,
                             "method": "Gauss-Laguerre"
                         }
@@ -2660,7 +2660,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.661338147750939e-16,
                             "integral": -0.599651979159652,
                             "method": "Gauss-Laguerre"
                         }
@@ -2671,7 +2671,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.106226635438361e-16,
                             "integral": -0.49975791962242105,
                             "method": "Gauss-Laguerre"
                         }
@@ -2682,7 +2682,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.106226635438361e-16,
                             "integral": -0.39984481041764985,
                             "method": "Gauss-Laguerre"
                         }
@@ -2693,7 +2693,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.996003610813204e-16,
                             "integral": -0.29991255913510356,
                             "method": "Gauss-Laguerre"
                         }
@@ -2704,7 +2704,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.0531133177191805e-16,
                             "integral": -0.19996107148657669,
                             "method": "Gauss-Laguerre"
                         }
@@ -2715,7 +2715,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-16,
                             "integral": -0.09999025121572844,
                             "method": "Gauss-Laguerre"
                         }
@@ -2737,7 +2737,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.6653345369377348e-16,
                             "integral": 0.1000097826564964,
                             "method": "Gauss-Laguerre"
                         }
@@ -2748,7 +2748,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 3.0531133177191805e-16,
                             "integral": 0.20003919954045618,
                             "method": "Gauss-Laguerre"
                         }
@@ -2759,7 +2759,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.440892098500626e-16,
                             "integral": 0.3000883558588635,
                             "method": "Gauss-Laguerre"
                         }
@@ -2770,7 +2770,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.440892098500626e-16,
                             "integral": 0.40015735938249775,
                             "method": "Gauss-Laguerre"
                         }
@@ -2781,7 +2781,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 4.440892098500626e-16,
                             "integral": 0.500246320606008,
                             "method": "Gauss-Laguerre"
                         }
@@ -2792,7 +2792,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 6.661338147750939e-16,
                             "integral": 0.6003553529278156,
                             "method": "Gauss-Laguerre"
                         }
@@ -2803,7 +2803,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 9.992007221626409e-16,
                             "integral": 0.7004845728541158,
                             "method": "Gauss-Laguerre"
                         }
@@ -2814,7 +2814,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.2212453270876722e-15,
                             "integral": 0.8006341002327548,
                             "method": "Gauss-Laguerre"
                         }
@@ -2825,7 +2825,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.5543122344752192e-15,
                             "integral": 0.9008040585250844,
                             "method": "Gauss-Laguerre"
                         }
@@ -2836,7 +2836,7 @@
                             "b": 1,
                             "depth": 0,
                             "tol": 1e-14,
-                            "error": 0.0,
+                            "error": 1.7763568394002505e-15,
                             "integral": 1.0009945751278206,
                             "method": "Gauss-Laguerre"
                         }

@@ -211,7 +211,7 @@ class AdaptiveGaussTree:
         if "laguerre_roots_n1" in data:
             self.laguerre_roots_n1 = [np.array(data["laguerre_roots_n1"][0]), np.array(data["laguerre_roots_n1"][1])]
         else:
-            self.laguerre_roots_n1 = roots_legendre(self.n2)           
+            self.laguerre_roots_n1 = roots_laguerre(self.n1)           
         if "legendre_roots_n2" in data:
             self.legendre_roots_n2 = [np.array(data["legendre_roots_n2"][0]), np.array(data["legendre_roots_n2"][1])]
         else:
