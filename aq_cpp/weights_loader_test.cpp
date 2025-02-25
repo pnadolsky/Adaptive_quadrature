@@ -29,6 +29,31 @@ int main() {
         std::cerr << e.what() << std::endl;
     }
 
+//   Testing the json functionality.
+     
+    //WeightsLoader loader("..\\model_json\\legendre.json");
+    std::ifstream file("test.json");
+    json file_json;
+    file >> file_json;
+    file.close();
+
+    WeightsLoader wl = WeightsLoader(file_json, "legendre_roots_n1", "Legendre", "n1");
+    std::vector<double> nodes = wl.getNodes(100);
+    std::vector<double> weights = wl.getWeights(100);
+// Print the values
+    std::cout <<"from test.json:" << wl.getMethod() <<std::endl;
+    std::cout <<"n_max (= one value):" << wl.getNMax() <<std::endl;
+    std::cout << "Nodes: (" << std::endl;
+    for (double val : nodes) {
+            std::cout << val << " ";
+    }
+    std::cout << std::endl;  
+    std::cout << "Weights: (" << std::endl;
+    for (double val : weights) {
+            std::cout << val << " ";
+    }
+    std::cout << std::endl;  
+
     return 0;
 }
 

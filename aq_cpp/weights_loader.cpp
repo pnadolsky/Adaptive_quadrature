@@ -22,6 +22,18 @@ WeightsLoader::WeightsLoader(const std::string& filename) {
     }
 }
 
+
+WeightsLoader::WeightsLoader(json js, const std::string& key, const std::string& method, const std::string& n_key){ 
+    this->method = method;
+    this->n_max = js[n_key].get<int>();
+
+    // Extract the values
+    std::vector<std::vector<double>> values = js[key].get<std::vector<std::vector<double>>>();
+    nodes[this->n_max] = values[0];
+    weights[this->n_max] = values[1];
+}
+
+
 std::vector<double> WeightsLoader::getNodes(int n) const {
     if (nodes.find(n) != nodes.end()) {
         return nodes.at(n);
