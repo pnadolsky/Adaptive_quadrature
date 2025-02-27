@@ -1,9 +1,9 @@
 #ifndef ADAPTIVE_GAUSS_BATCH_HPP
 #define ADAPTIVE_GAUSS_BATCH_HPP
 
-#include "weights_loader.hpp"
-#include "adaptive_gauss_tree.hpp"
-#include "json.hpp"
+#include <weights_loader.hpp>
+#include <adaptive_gauss_tree.hpp>
+#include <nlohmann/json.hpp>
 #include <unordered_map>
 #include <vector>
 #include <string>

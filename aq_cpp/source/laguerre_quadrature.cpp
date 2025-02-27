@@ -1,4 +1,4 @@
-#include "laguerre_quadrature.hpp"
+#include <laguerre_quadrature.hpp>
 #include <cmath>
 
 // Constructor: Lower limit = 0, upper limit = infinity, with weight function flag

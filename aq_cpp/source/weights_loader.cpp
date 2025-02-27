@@ -1,4 +1,4 @@
-#include "weights_loader.hpp"
+#include <weights_loader.hpp>
 
 WeightsLoader::WeightsLoader(const std::string& filename) {
     std::ifstream file(filename);

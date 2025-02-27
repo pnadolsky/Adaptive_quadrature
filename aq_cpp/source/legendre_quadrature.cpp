@@ -1,4 +1,4 @@
-#include "legendre_quadrature.hpp"
+#include <legendre_quadrature.hpp>
 #include <iostream>
 #include <cmath>
 

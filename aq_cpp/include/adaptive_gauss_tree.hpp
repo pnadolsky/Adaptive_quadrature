@@ -1,11 +1,11 @@
 #ifndef ADAPTIVE_GAUSS_TREE_HPP
 #define ADAPTIVE_GAUSS_TREE_HPP
 
-#include "quadrature.hpp"
-#include "legendre_quadrature.hpp"
-#include "laguerre_singular_endpoint.hpp"
-#include "weights_loader.hpp"
-#include "json.hpp"
+#include <quadrature.hpp>
+#include <legendre_quadrature.hpp>
+#include <laguerre_singular_endpoint.hpp>
+#include <weights_loader.hpp>
+#include <nlohmann/json.hpp>
 #include <iostream>
 #include <fstream>
 #include <filesystem> // For checking file existence

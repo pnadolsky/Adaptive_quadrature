@@ -1,4 +1,4 @@
-#include "adaptive_gauss_batch.hpp"
+#include <adaptive_gauss_batch.hpp>
 
 // Constructor for loading from a serialized JSON tree
 AdaptiveGaussTreeBatch::AdaptiveGaussTreeBatch(

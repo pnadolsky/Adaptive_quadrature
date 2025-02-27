@@ -1,4 +1,4 @@
-#include "quadrature.hpp"
+#include <quadrature.hpp>
 
 // Constructor: Allows infinite limits using std::nullopt
 Quadrature::Quadrature(const WeightsLoader& loader, int n1, int n2, std::optional<double> lower, std::optional<double> upper, std::string methodName)

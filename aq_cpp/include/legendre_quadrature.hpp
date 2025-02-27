@@ -1,7 +1,7 @@
 #ifndef LEGENDRE_QUADRATURE_HPP
 #define LEGENDRE_QUADRATURE_HPP
 
-#include "quadrature.hpp"
+#include <quadrature.hpp>
 
 //using ParamType = std::variant<int, double, std::string>;
 //using ParamMap = std::unordered_map<std::string, ParamType>;

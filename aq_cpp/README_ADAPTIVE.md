@@ -76,7 +76,7 @@ Each node in the tree represents an interval of the integration domain and conta
 ### Usage Example
 #### **Using the Adaptive Gauss Tree**
 ```cpp
-#include "adaptive_gauss_tree.hpp"
+#include <adaptive_gauss_tree.hpp>
 #include <iostream>
 
 // Example function: log(x) / sqrt(x)
@@ -105,7 +105,7 @@ int main() {
 Note that it should be ok to pass the same WeightsLoader for the same quadrature types (e.g. laguerre_n1, laguerre_n2).
 ### Running the Test
 ```sh
- g++ -o adaptive_test adaptive_test.cpp  weights_loader.cpp legendre_quadrature.cpp laguerre_singular_endpoint.cpp laguerre_quadrature.cpp quadrature.cpp polylog_port.cpp -std=c++17 
+g++ -o adaptive_test -Iinclude source/*.cpp test/adaptive_test.cpp  -std=c++17 
  ./adaptive_test
 ```
 
@@ -196,7 +196,7 @@ batch.save_to_json("output.json");
 
 ## Running the Test
 ```sh
- g++ -o adaptive_gauss_batch_test adaptive_gauss_batch_test.cpp adaptive_gauss_batch.cpp adaptive_gauss_tree.cpp weights_loader.cpp legendre_quadrature.cpp laguerre_singular_endpoint.cpp laguerre_quadrature.cpp quadrature.cpp polylog_port.cpp -std=c++17 
+g++ -o adaptive_gauss_batch_test  -Iinclude source/*.cpp test/adaptive_gauss_batch_test.cpp  -std=c++17 
  ./adaptive_gauss_batch_test
 ```
 

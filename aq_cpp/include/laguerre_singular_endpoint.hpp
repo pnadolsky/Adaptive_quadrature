@@ -1,7 +1,7 @@
 #ifndef LAGUERRE_SINGULAR_ENDPOINT_HPP
 #define LAGUERRE_SINGULAR_ENDPOINT_HPP
 
-#include "laguerre_quadrature.hpp"
+#include <laguerre_quadrature.hpp>
 
 class LaguerreSingularEndpoint : public LaguerreQuadrature {
 private:

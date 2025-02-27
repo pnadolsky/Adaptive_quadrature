@@ -1,4 +1,4 @@
-#include "laguerre_singular_endpoint.hpp"
+#include <laguerre_singular_endpoint.hpp>
 #include <cmath>
 
 //  Constructor: Passes lower & upper to `Quadrature`, sets singularity and alpha

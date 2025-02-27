@@ -21,7 +21,7 @@ The `weights_loader` module is responsible for loading and managing weight matri
 
 ### Compile weights_loader_test
 ~~~
-g++ -std=c++17 -o weights_loader_test weights_loader.cpp weights_loader_test.cpp 
+g++ -o weights_loader_test  -Iinclude source/*.cpp test/weights_loader_test.cpp  -std=c++17 
 ~~~
 ## Quadrature
 
@@ -102,7 +102,10 @@ public:
     }
 };
 ```
-
+### Compile quadrature_test
+~~~
+g++ -o quadrature_test  -Iinclude source/*.cpp test/quadrature_test.cpp  -std=c++17 
+~~~
 
 ## Legendre Quadrature
 
@@ -149,7 +152,7 @@ The `legendre_quadrature_test.cpp` file provides a test case that:
 
 ###  Compile legendre_quadrature_test
 ~~~
-g++ -std=c++17 -o legendre_quadrature_test weights_loader.cpp polylog_port.cpp quadrature.cpp legendre_quadrature.cpp legendre_quadrature_test.cpp
+g++ -o legendre_quadrature_test  -Iinclude source/*.cpp test/legendre_quadrature_test.cpp  -std=c++17 
 ~~~
 
 ## Laguerre Quadrature
@@ -208,7 +211,7 @@ The `laguerre_quadrature_test.cpp` file provides test cases that:
 
 ###  Compile laguerre_quadrature_test
 ~~~
-g++ -std=c++17 -o laguerre_quadrature_test weights_loader.cpp quadrature.cpp laguerre_quadrature.cpp laguerre_quadrature_test.cpp
+g++ -o laguerre_quadrature_test  -Iinclude source/*.cpp test/laguerre_quadrature_test.cpp  -std=c++17 
 ~~~
 
 ## Laguerre Singular Quadrature
@@ -284,7 +287,7 @@ The `laguerre_singular_test.cpp` file provides test cases that:
 
 ###  Compile laguerre_singular_test
 ~~~
-g++ -std=c++17 -o laguerre_singular_test weights_loader.cpp quadrature.cpp legendre_quadrature.cpp laguerre_quadrature.cpp laguerre_singular_endpoint.cpp laguerre_singular_test.cpp
+g++ -o laguerre_singular_test  -Iinclude source/*.cpp test/laguerre_singular_test.cpp  -std=c++17 
 ~~~
 
 
@@ -293,5 +296,5 @@ g++ -std=c++17 -o laguerre_singular_test weights_loader.cpp quadrature.cpp legen
 ##  Polylog Port
 ### Compile polylog_test
 ~~~
-g++ -std=c++17 -o polylog_test polylog_port.cpp polylog_test.cpp
+g++ -o polylog_test  -Iinclude source/*.cpp test/polylog_test.cpp  -std=c++17 
 ~~~

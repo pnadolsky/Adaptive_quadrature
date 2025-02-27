@@ -51,7 +51,7 @@ The `polylog_test.cpp` file provides test cases that:
 ### Running the Test
 To compile and run the test:
 ```sh
- g++ -o polylog_test polylog_port.cpp polylog_test.cpp -std=c++17 -Wall
+ g++ -o polylog_test  -Iinclude source/*.cpp test/polylog_test.cpp  -std=c++17 
  ./polylog_test
 ```
 

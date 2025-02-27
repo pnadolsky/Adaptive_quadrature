@@ -1,7 +1,7 @@
 #ifndef LAGUERRE_QUADRATURE_HPP
 #define LAGUERRE_QUADRATURE_HPP
 
-#include "quadrature.hpp"
+#include <quadrature.hpp>
 
 class LaguerreQuadrature : public Quadrature {
 private:

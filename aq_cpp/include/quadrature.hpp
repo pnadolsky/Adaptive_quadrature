@@ -1,7 +1,7 @@
 #ifndef QUADRATURE_HPP
 #define QUADRATURE_HPP
 
-#include "weights_loader.hpp"
+#include <weights_loader.hpp>
 #include <functional>
 #include <unordered_map>
 #include <map>
