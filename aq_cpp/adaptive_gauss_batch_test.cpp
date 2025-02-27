@@ -51,7 +51,13 @@ int main() {
      auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);    
     std::cout << "Time to generate in milliseconds: \t" << duration.count() <<" ms"<<std::endl;
     batch.printCollection();
-    //  void save_to_json(const std::string & filename, bool overwrite = false, bool write_roots=false, bool write_trees =true)
+
     batch.save_to_json("test.json", true,  true,  true );
+
+    // load a tree:
+    std::cout << "Reload:"  <<std::endl;    
+    AdaptiveGaussTreeBatch batch_from_file =  AdaptiveGaussTreeBatch( func,"test.json" );    
+    std::cout << "Reloaded Successfully"  <<std::endl;
+    batch_from_file.printCollection();
     return 0;
 }

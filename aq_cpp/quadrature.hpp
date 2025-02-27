@@ -12,7 +12,6 @@
 using ParamType = std::variant<int, double, std::string>;  // allows for mutable parameter types
 using ParamMap = std::unordered_map<std::string, ParamType>;  // ParamMap: single set of values, e.g.:  {s: 1, z: 0.1, label: "A"}
 // ParamCollection:  labels and vectors of values , e.g.:  {s: {1,2,3}, z: {0.1,0.2}, label: {"A","B","C"}}
-//using ParamCollection = std::unordered_map<std::string, std::variant<std::vector<int>, std::vector<double>, std::vector<std::string>>>; 
 using ParamCollection = std::map<std::string, std::variant<std::vector<int>, std::vector<double>, std::vector<std::string>>>;
 
 std::ostream& operator<<(std::ostream& os, const ParamType& param);    //overload to print ParamType

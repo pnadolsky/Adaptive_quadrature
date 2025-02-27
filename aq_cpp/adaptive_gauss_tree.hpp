@@ -28,7 +28,7 @@ class AdaptiveGaussTree {
         int n1, int n2,  // Explicitly pass n1 and n2
         double alphaA, double alphaB, bool singularA, bool singularB,
         WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2,
-        ParamMap args={},
+        ParamMap args={},  // function argumnets (optional)
         std::string name="Project", std::string author="Author",  std::string description="project description", 
         std::string reference="references", std::string version="1.0", std::string update_log_message="Initial Train" 
     )
@@ -47,11 +47,21 @@ class AdaptiveGaussTree {
     // Constructor from JSON file
     AdaptiveGaussTree(
         std::function<double(ParamMap, double)> f,
-        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename,ParamMap args={} )
+        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, std::string filename,ParamMap args={})
         : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
           roots_laguerre_n1(ll1), roots_laguerre_n2(ll2), args(args) {
         load_from_json(filename);
     }
+
+    // Constructor from JSON data
+    AdaptiveGaussTree(json jsn,
+        std::function<double(ParamMap, double)> f,
+        WeightsLoader rl1, WeightsLoader rl2, WeightsLoader ll1, WeightsLoader ll2, ParamMap args={} )
+        : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
+          roots_laguerre_n1(ll1), roots_laguerre_n2(ll2), args(args) {
+        load_from_json_stream(jsn);
+    }
+
     // Method to get the total integral and error
     std::pair<double, double> get_integral_and_error() const {
         return traverse_and_sum(root.get());
@@ -97,9 +107,13 @@ class AdaptiveGaussTree {
     }
 
     void load_from_json(std::string filename) {
-        std::ifstream file(filename);
         json data;
+        std::ifstream file(filename);
         file >> data;
+        load_from_json_stream(data);                
+    }
+
+    void load_from_json_stream(json data) {
         name = data["name"];
         reference=data["reference"];
         description=data["description"];
@@ -116,7 +130,8 @@ class AdaptiveGaussTree {
             for (const auto& entry : data["update_log"]) {
                 update_log.emplace_back(entry["timestamp"], entry["message"]);
             }
-    }
+        }
+//        std::cout << "deserialize" << std::endl;
         root = deserialize_tree(data["tree"]);
     }
 
@@ -217,10 +232,13 @@ private:
                                            data["tol"],order1, order2, data["method"] == "Gauss-Laguerre");
         node->error = data["error"];
         node->result = data["integral"];
-        node->left = deserialize_tree(data["left"]);
-        node->right = deserialize_tree(data["right"]);
+        if (data.contains("left")){
+            node->left = deserialize_tree(data["left"]);
+            node->right = deserialize_tree(data["right"]);
+        } 
         return node;
     }
+
     std::pair<double, double> traverse_and_sum(const Node* node) const {
         if (!node) return {0.0, 0.0};
         if (!node->left && !node->right) return {node->result, node->error};

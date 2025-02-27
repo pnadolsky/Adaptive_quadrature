@@ -18,6 +18,7 @@ private:
     int n_max;  // New field to store maximum order
 
 public:
+    WeightsLoader(){};
     // Constructor that loads a weights JSON file
     WeightsLoader(const std::string& filename);
     // This Constructor loads a single weight set as generated in the adaptive quadrature jsons. Uses the dictonary keys
