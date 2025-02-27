@@ -69,6 +69,13 @@ int main() {
         std::cout << "Polylog Integral (e.g. zeta(2)): " << integral5 << "\n";
         std::cout << "Polylog Estimated Error: ~ < 10^-12: " << error5 << "\n";   
 
+        // test copy constructor
+
+        AdaptiveGaussTree poly_tree_2 = poly_tree;
+        auto [integral6, error6] = poly_tree_2.get_integral_and_error();
+        std::cout << "Polylog (Copy) Integral (e.g. zeta(2)): " << integral6 << "\n";
+        std::cout << "Polylog (Copy) Estimated Error: ~ < 10^-12: " << error6 << "\n";           
+
     } catch (const std::exception& e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }

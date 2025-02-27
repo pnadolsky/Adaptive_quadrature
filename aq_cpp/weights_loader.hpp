@@ -29,6 +29,9 @@ public:
     std::vector<double> getWeights(int n) const;
     std::string getMethod() const;
     int getNMax() const;  // New method to retrieve max order
+// Add this inside `WeightsLoader` in weights_loader.hpp:
+    WeightsLoader(const WeightsLoader&) = default;  // Explicitly use the default copy constructor
+    WeightsLoader& operator=(const WeightsLoader&) = default;  // Default assignment operator
 
     // Function to check if order exists
     bool hasOrder(int n) const;

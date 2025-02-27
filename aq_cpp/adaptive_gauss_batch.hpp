@@ -92,7 +92,7 @@ public:
         parameters(parameters), 
         name(name), author(author),description(description),reference(reference), version(version)
     {
-    
+        
         add_update_log(update_log_message);
         for (const auto& pair : parameters) {
             keys.push_back(pair.first);
@@ -114,6 +114,28 @@ public:
         }
     }
 
+    AdaptiveGaussTreeBatch(const AdaptiveGaussTreeBatch& other)
+        : func(other.func),
+          tol(other.tol), lower(other.lower), upper(other.upper),
+          alphaA(other.alphaA), alphaB(other.alphaB),
+          min_depth(other.min_depth), max_depth(other.max_depth),
+          order1(other.order1), order2(other.order2),
+          a_singular(other.a_singular), b_singular(other.b_singular),
+          legendre_n1(other.legendre_n1), legendre_n2(other.legendre_n2),
+          laguerre_n1(other.laguerre_n1), laguerre_n2(other.laguerre_n2),
+          parameters(other.parameters),
+          name(other.name), author(other.author),
+          description(other.description), reference(other.reference),
+          version(other.version), keys(other.keys),
+          update_log(other.update_log), results(other.results) {
+        
+        // Deep copy QuadCollection (map of unique_ptr<AdaptiveGaussTree>)
+        for (const auto& pair : other.quad_coll) {
+            quad_coll[pair.first] = std::make_unique<AdaptiveGaussTree>(*pair.second);
+        }
+    }
+
+
     AdaptiveGaussTreeBatch(
         std::function<double(ParamMap, double)> func,
         std::string filename
@@ -124,10 +146,13 @@ public:
                std::cout << result << *quad_coll[result] <<std::endl;
            }
        };   
-
+    void merge(const AdaptiveGaussTreeBatch& other);
     const QuadCollection& getCollection() const { return quad_coll; };
     void save_to_json(const std::string & filename, bool overwrite = false, bool write_roots=false, bool write_trees =true); 
     json parameter_serializer(bool dump_nodes = false); 
+    AdaptiveGaussTreeBatch operator+(const AdaptiveGaussTreeBatch& other) const;
+    AdaptiveGaussTreeBatch& operator+=(const AdaptiveGaussTreeBatch& other);
+
 };
 
 

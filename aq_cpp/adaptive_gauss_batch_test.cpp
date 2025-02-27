@@ -59,5 +59,40 @@ int main() {
     AdaptiveGaussTreeBatch batch_from_file =  AdaptiveGaussTreeBatch( func,"test.json" );    
     std::cout << "Reloaded Successfully"  <<std::endl;
     batch_from_file.printCollection();
+    std::cout << "Test Copy Constructor"  <<std::endl;
+    AdaptiveGaussTreeBatch batch_copy = batch_from_file; // Test deep copy
+    batch_copy.printCollection();
+
+//  OK - lets test merging:
+
+    // Define input parameter vectors
+
+    std::vector<double> z2 = {-0.1, -0.2,-0.3, -0.4, -0.5,-0.6, -0.7, -0.8,-0.9, -1.0};
+    ParamCollection params2;  // last in first out
+    //    params["lab"] = l;    
+    params2["s"] = s;
+    params2["z"] = z2;
+   
+    AdaptiveGaussTreeBatch batch_for_merge = AdaptiveGaussTreeBatch(
+        func, lower,  upper, tol,  minD,  maxD,  n1,  n2,
+         alphaA,  alphaB, singularA,  singularB,
+        legendre_n1, legendre_n2, laguerre_n1, laguerre_n2,
+        params2      
+    );
+    std::cout <<"\n\n\n\n\n\n"<< "Test Merge"  <<std::endl;
+    batch_copy.merge(batch_for_merge);
+    batch_copy.printCollection();    
+
+    std::cout <<"\n\n\n\n\n\n"<< "Test + "  <<std::endl;
+    AdaptiveGaussTreeBatch batch_plus_results = batch_from_file + batch_for_merge;     // test plus
+    batch_for_merge.printCollection();    
+
+    std::cout <<"\n\n\n\n\n\n"<< "Test += "  <<std::endl;
+    AdaptiveGaussTreeBatch batch_plus_equals_results = batch_from_file;
+    batch_plus_equals_results += batch_for_merge;
+    batch_plus_equals_results.printCollection();    
+    std::cout << "check batch_from_file to verify deep copy "  <<std::endl;
+    batch_plus_equals_results.printCollection(); 
+
     return 0;
 }

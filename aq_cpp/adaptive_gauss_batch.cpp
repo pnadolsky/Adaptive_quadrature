@@ -143,6 +143,57 @@ AdaptiveGaussTreeBatch::AdaptiveGaussTreeBatch(
     }
 }
 
+void AdaptiveGaussTreeBatch::merge(const AdaptiveGaussTreeBatch& other) {
+    // Merge quad_coll (deep copy of AdaptiveGaussTree)
+    for (const auto& pair : other.quad_coll) {
+        const ParamMap& param_key = pair.first;
+
+        // Check if key already exists
+        if (quad_coll.find(param_key) != quad_coll.end()) {
+            std::cout << "Warning: Duplicate key found in merge(). Keeping existing tree for key: " << param_key << std::endl;
+            continue; // Skip or modify this behavior if needed
+        }
+
+        // Deep copy and insert new AdaptiveGaussTree
+        quad_coll[param_key] = std::make_unique<AdaptiveGaussTree>(*pair.second);
+    }
+
+    // Merge results
+    results.insert(results.end(), other.results.begin(), other.results.end());
+
+    // Merge update log (keeping chronological order)
+    update_log.insert(update_log.end(), other.update_log.begin(), other.update_log.end());
+
+    // Preserve unique keys
+    std::set<std::string> key_set(keys.begin(), keys.end());
+    key_set.insert(other.keys.begin(), other.keys.end());
+    keys.assign(key_set.begin(), key_set.end());
+
+    // Merge parameters (combine values for matching keys)
+    for (const auto& [key, value] : other.parameters) {
+        if (parameters.find(key) != parameters.end()) {
+            // Append new values if they don't already exist
+            std::visit([&](auto& vec) {
+                using T = std::decay_t<decltype(vec)>;
+                auto& existing_vec = std::get<T>(parameters[key]);
+                for (const auto& val : vec) {
+                    if (std::find(existing_vec.begin(), existing_vec.end(), val) == existing_vec.end()) {
+                        existing_vec.push_back(val);
+                    }
+                }
+            }, value);
+        } else {
+            parameters[key] = value; // Add new parameter entry
+        }
+    }
+
+    // Log the merge operation
+    add_update_log("Merged with another AdaptiveGaussTreeBatch instance.");
+}
+
+
+
+
 void AdaptiveGaussTreeBatch::extract_keys(const json& param_json, std::set<std::string>& key_set, int depth) {
     for (auto it = param_json.begin(); it != param_json.end(); ++it) {
         if (it.key() == "tree") continue;  // Ignore "tree"
@@ -410,3 +461,15 @@ json AdaptiveGaussTreeBatch::parameter_serializer(bool dump_nodes) {
 
     return result;
 }
+
+AdaptiveGaussTreeBatch AdaptiveGaussTreeBatch::operator+(const AdaptiveGaussTreeBatch& other) const {
+    AdaptiveGaussTreeBatch result(*this);  // Step 1: Deep copy lhs (`this`)
+    result.merge(other);                   // Step 2: Merge rhs (`other`)
+    return result;                          // Step 3: Return new merged batch
+}
+
+AdaptiveGaussTreeBatch& AdaptiveGaussTreeBatch::operator+=(const AdaptiveGaussTreeBatch& other) {
+    this->merge(other);  // Merge `other` into `this`
+    return *this;        // Return the updated lhs (`this`)
+}
+

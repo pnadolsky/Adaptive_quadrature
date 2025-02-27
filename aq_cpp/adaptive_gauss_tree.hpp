@@ -20,6 +20,21 @@
 using json = nlohmann::ordered_json;
 
 class AdaptiveGaussTree {
+    private:
+    struct Node {
+        double lower, upper;
+        int depth;
+        double tolerance, error, result;
+        int order1, order2;
+        bool is_singular;
+        std::unique_ptr<Node> left, right;
+        
+        Node(double lower, double upper, int depth, double tol, int o1, int o2, bool singular)
+            : lower(lower), upper(upper), depth(depth), tolerance(tol), order1(o1), order2(o2), is_singular(singular),
+              error(0.0), result(0.0), left(nullptr), right(nullptr) {}
+    };
+
+
     public:
     // Constructor from parameters
     AdaptiveGaussTree(
@@ -60,6 +75,42 @@ class AdaptiveGaussTree {
         : func(f), roots_legendre_n1(rl1), roots_legendre_n2(rl2),
           roots_laguerre_n1(ll1), roots_laguerre_n2(ll2), args(args) {
         load_from_json_stream(jsn);
+    }
+
+// copy constructor
+
+    AdaptiveGaussTree(const AdaptiveGaussTree& other)
+        : func(other.func),
+        tolerance(other.tolerance),
+        min_depth(other.min_depth), max_depth(other.max_depth),
+        order1(other.order1), order2(other.order2),
+         a_singular(other.a_singular), b_singular(other.b_singular),
+        alpha_a(other.alpha_a), alpha_b(other.alpha_b),
+        args(other.args),
+        roots_legendre_n1(other.roots_legendre_n1), roots_legendre_n2(other.roots_legendre_n2),
+        roots_laguerre_n1(other.roots_laguerre_n1), roots_laguerre_n2(other.roots_laguerre_n2),
+        name(other.name), reference(other.reference), description(other.description),
+        author(other.author), version(other.version),
+        update_log(other.update_log) {
+
+    // Deep copy the tree structure
+        root = clone_tree(other.root.get());
+}
+
+// Helper function to recursively copy tree nodes
+    std::unique_ptr<Node> clone_tree(const Node* node) {
+        if (!node) return nullptr;
+
+        auto new_node = std::make_unique<Node>(node->lower, node->upper, node->depth, 
+                                            node->tolerance, node->order1, node->order2, 
+                                            node->is_singular);
+        new_node->result = node->result;
+        new_node->error = node->error;
+
+        new_node->left = clone_tree(node->left.get());
+        new_node->right = clone_tree(node->right.get());
+
+        return new_node;
     }
 
     // Method to get the total integral and error
@@ -144,18 +195,7 @@ class AdaptiveGaussTree {
         return serialize_tree(root.get(), dump_nodes);
     }
 private:
-    struct Node {
-        double lower, upper;
-        int depth;
-        double tolerance, error, result;
-        int order1, order2;
-        bool is_singular;
-        std::unique_ptr<Node> left, right;
-        
-        Node(double lower, double upper, int depth, double tol, int o1, int o2, bool singular)
-            : lower(lower), upper(upper), depth(depth), tolerance(tol), order1(o1), order2(o2), is_singular(singular),
-              error(0.0), result(0.0), left(nullptr), right(nullptr) {}
-    };
+
 
     std::function<double(ParamMap, double)> func;
     double tolerance;
