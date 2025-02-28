@@ -289,12 +289,3 @@ The `laguerre_singular_test.cpp` file provides test cases that:
 ~~~
 g++ -o laguerre_singular_test  -Iinclude source/*.cpp test/laguerre_singular_test.cpp  -std=c++17 
 ~~~
-
-
-
-
-##  Polylog Port
-### Compile polylog_test
-~~~
-g++ -o polylog_test  -Iinclude source/*.cpp test/polylog_test.cpp  -std=c++17 
-~~~
