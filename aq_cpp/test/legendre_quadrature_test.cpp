@@ -19,7 +19,7 @@ int main() {
         LegendreQuadrature legendre(loader, 100, 180, 0.0, 1.0);
 
         // Perform integration
-        double result = legendre.integrate(polylog_wrapper, params);
+        //double result = legendre.integrate(polylog_wrapper, params);
 
         // Output result and error estimation
         std::cout << "Legendre Quadrature Integral result: " << std::setprecision(15) << legendre.getResult() << std::endl;

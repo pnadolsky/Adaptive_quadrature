@@ -5,10 +5,12 @@
 
 // Example function: exp(-x^2) for Laguerre integration
 double gaussian_function(ParamMap params, double t) {
+    (void) params;
     return std::exp(-t * t);
 }
 
 double gaussian_function_with_weight_included(ParamMap params, double t) {
+    (void) params;
     return std::exp(t-t * t);
 }
 

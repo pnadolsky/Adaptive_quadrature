@@ -5,6 +5,7 @@
 
 // Example function: log(x) / sqrt(x)
 double test_function(ParamMap params, double x) {
+    (void) params;
     if (x == 0.0) return 0.0;  // Avoid log(0) undefined case
     return std::log(x) / std::sqrt(x);
 }
