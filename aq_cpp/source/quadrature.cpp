@@ -2,7 +2,7 @@
 
 // Constructor: Allows infinite limits using std::nullopt
 Quadrature::Quadrature(const WeightsLoader& loader, int n1, int n2, std::optional<double> lower, std::optional<double> upper, std::string methodName)
-    : weightsLoader(loader), order1(n1), order2(n2), lowerLimit(lower), upperLimit(upper), result(0.0), error(0.0), method(methodName) {
+    : weightsLoader(loader), order1(n1), order2(n2), result(0.0), error(0.0), lowerLimit(lower), upperLimit(upper), method(methodName) {
 
     if (!weightsLoader.hasOrder(order1) || !weightsLoader.hasOrder(order2)) {
         throw std::invalid_argument("Requested quadrature orders not found in WeightsLoader.");

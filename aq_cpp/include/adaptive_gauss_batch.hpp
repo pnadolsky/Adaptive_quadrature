@@ -84,9 +84,9 @@ public:
         std::string name="Project", std::string author="Author",  std::string description="project description", 
         std::string reference="references", std::string version="1.0", std::string update_log_message="Initial Batch Creation"         
     ) : func(func), 
-        lower(lower),upper(upper), tol(tol),
-        min_depth(min_depth), max_depth(max_depth), order1(n1), order2(n2),
-        alphaA(alphaA), alphaB(alphaB),
+         tol(tol), lower(lower),upper(upper),
+         alphaA(alphaA), alphaB(alphaB),
+        min_depth(min_depth), max_depth(max_depth), order1(n1), order2(n2),       
         a_singular(a_singular),b_singular(b_singular), 
         legendre_n1(legendre_n1),legendre_n2(legendre_n2),laguerre_n1(laguerre_n1),laguerre_n2(laguerre_n2),
         parameters(parameters), 
@@ -126,8 +126,8 @@ public:
           parameters(other.parameters),
           name(other.name), author(other.author),
           description(other.description), reference(other.reference),
-          version(other.version), keys(other.keys),
-          update_log(other.update_log), results(other.results) {
+          version(other.version), results(other.results) ,
+          update_log(other.update_log),   keys(other.keys) {
         
         // Deep copy QuadCollection (map of unique_ptr<AdaptiveGaussTree>)
         for (const auto& pair : other.quad_coll) {

@@ -120,25 +120,11 @@ AdaptiveGaussTreeBatch::AdaptiveGaussTreeBatch(
         json_head["max_depth"]=max_depth;
         json_head["n1"]=order1;
         json_head["n2"]=order2;
-//        std::cout << "assign tree" <<std::endl;
         json_head["tree"] = tree_json;
-//        std::cout << "good" <<std::endl;
-//        std::cout << "head dump" << std::endl;        
-//        std::cout << json_head.dump(4) << std::endl; 
-//        std::cout << "completed" << std::endl;
-/*
-        auto node = std::make_unique<Node>(data["a"], data["b"], data["depth"],
-                                           data["tol"],order1, order2, data["method"] == "Gauss-Laguerre");
-        node->error = data["error"];
-        node->result = data["integral"];
-*/
 
         std::unique_ptr<AdaptiveGaussTree> tree_ptr = std::make_unique<AdaptiveGaussTree>(
             json_head, func, legendre_n1, legendre_n2, laguerre_n1, laguerre_n2 , param_map
         );
-        AdaptiveGaussTree & the_tree = *tree_ptr;
-//        std::cout << "tree" << std::endl;
-//        std::cout << the_tree << std::endl;
         quad_coll[param_map] = std::move(tree_ptr);
     }
 }
@@ -153,7 +139,6 @@ void AdaptiveGaussTreeBatch::merge(const AdaptiveGaussTreeBatch& other) {
             std::cout << "Warning: Duplicate key found in merge(). Keeping existing tree for key: " << param_key << std::endl;
             continue; // Skip or modify this behavior if needed
         }
-
         // Deep copy and insert new AdaptiveGaussTree
         quad_coll[param_key] = std::make_unique<AdaptiveGaussTree>(*pair.second);
     }
@@ -224,11 +209,8 @@ void AdaptiveGaussTreeBatch::extract_parameters(
     for (auto it = param_json.begin(); it != param_json.end(); ++it) {
         std::string key = it.key();
 
-        // 🚨 Skip "tree" since it contains no parameters
+        //  Skip "tree" since it contains no parameters
         if (key == "tree") continue;
-
-        //std::cout << "Processing key: " << key << " | Type: " << it->type_name() 
-        //          << " | Expecting " << (expecting_value ? "Value" : "Key") << std::endl;
 
         // If expecting a key (even depth), recurse deeper with key as parameter name
         if (!expecting_value) {
@@ -252,8 +234,6 @@ void AdaptiveGaussTreeBatch::extract_parameters(
                 string_sets[*current_key].insert(key);
             }
 
-            // ✅ Debug: Show what was added
-            //std::cout << "✔ Inserted unique value into parameters[" << *current_key << "]: " << key << std::endl;
 
             // Now switch to expecting a key on next recursion
             extract_parameters(*it, parameters, current_key, false, int_sets, double_sets, string_sets);
@@ -290,24 +270,21 @@ const json& AdaptiveGaussTreeBatch::find_tree_json(const json& param_json, const
         }
 
         if (!current->contains(key)) {
-            throw std::runtime_error("❌ Key missing in JSON: " + key);
+            throw std::runtime_error("Key missing in JSON: " + key);
         }
         if (!(*current)[key].contains(key_value)) {
-            throw std::runtime_error("❌ Key value missing in JSON: " + key_value);
+            throw std::runtime_error("Key value missing in JSON: " + key_value);
         }
 
         current = &((*current)[key][key_value]);
     }
 
-    // 🚨 Debug before returning "tree"
-//    std::cout << "🔍 Final JSON before accessing 'tree':\n" << current->dump(4) << std::endl;
-
-    // ✅ Check if "tree" exists and is valid
+    //  Check if "tree" exists and is valid
     if (!current->contains("tree")) {
-        throw std::runtime_error("❌ 'tree' key missing in JSON");
+        throw std::runtime_error("'tree' key missing in JSON");
     }
     if ((*current)["tree"].is_null()) {
-        throw std::runtime_error("❌ 'tree' key is null in JSON");
+        throw std::runtime_error("'tree' key is null in JSON");
     }
 
     return (*current)["tree"];
@@ -397,6 +374,12 @@ int AdaptiveGaussTreeBatch::getTypeRank() {
 }
 
 void AdaptiveGaussTreeBatch::save_to_json(const std::string & filename, bool overwrite, bool write_roots, bool write_trees ) {
+    // Check if the file exists
+    if (std::filesystem::exists(filename) && !overwrite) {
+        std::cerr << "File \"" << filename << "\" exists. Set overwrite = true to overwrite." << std::endl;
+        return;
+    }
+
     json data;
 
     data["name"] = name;

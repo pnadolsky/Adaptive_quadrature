@@ -30,8 +30,8 @@ class AdaptiveGaussTree {
         std::unique_ptr<Node> left, right;
         
         Node(double lower, double upper, int depth, double tol, int o1, int o2, bool singular)
-            : lower(lower), upper(upper), depth(depth), tolerance(tol), order1(o1), order2(o2), is_singular(singular),
-              error(0.0), result(0.0), left(nullptr), right(nullptr) {}
+            : lower(lower), upper(upper), depth(depth), tolerance(tol), error(0.0), result(0.0), order1(o1), order2(o2), is_singular(singular),
+              left(nullptr), right(nullptr) {}
     };
 
 
@@ -53,7 +53,7 @@ class AdaptiveGaussTree {
           roots_legendre_n1(rl1), roots_legendre_n2(rl2),
           roots_laguerre_n1(ll1), roots_laguerre_n2(ll2),
           args(args),
-          name(name), author(author), description(description), reference(reference), version(version) {
+          name(name), reference(reference), description(description), author(author), version(version) {
         
         root = build_tree(lower, upper, 0, tol);
         add_update_log(update_log_message);
@@ -84,11 +84,11 @@ class AdaptiveGaussTree {
         tolerance(other.tolerance),
         min_depth(other.min_depth), max_depth(other.max_depth),
         order1(other.order1), order2(other.order2),
-         a_singular(other.a_singular), b_singular(other.b_singular),
         alpha_a(other.alpha_a), alpha_b(other.alpha_b),
-        args(other.args),
+        a_singular(other.a_singular), b_singular(other.b_singular),
         roots_legendre_n1(other.roots_legendre_n1), roots_legendre_n2(other.roots_legendre_n2),
         roots_laguerre_n1(other.roots_laguerre_n1), roots_laguerre_n2(other.roots_laguerre_n2),
+        args(other.args),        
         name(other.name), reference(other.reference), description(other.description),
         author(other.author), version(other.version),
         update_log(other.update_log) {
@@ -151,7 +151,9 @@ class AdaptiveGaussTree {
         for (const auto& entry : update_log) {
             log_json.push_back({{"timestamp", entry.first}, {"message", entry.second}});
         }
-        data["update_log"] = log_json;        
+        if (!dump_log) {
+            data["update_log"] = log_json;
+        }        
         data["tree"] = serialize_tree(root.get());
         std::ofstream file(filename);
         file << data.dump(4);
@@ -201,11 +203,14 @@ private:
     double tolerance;
     int min_depth, max_depth;
     int order1, order2;
+    double alpha_a, alpha_b;    
     bool a_singular, b_singular;
-    double alpha_a, alpha_b;
+
+
+    WeightsLoader roots_legendre_n1,  roots_legendre_n2, roots_laguerre_n1, roots_laguerre_n2;
+
     ParamMap args;
-    
-    WeightsLoader roots_legendre_n1, roots_laguerre_n1, roots_legendre_n2, roots_laguerre_n2;
+
     std::unique_ptr<Node> root;
 
     // json header info

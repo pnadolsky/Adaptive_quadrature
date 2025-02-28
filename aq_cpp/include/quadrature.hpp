@@ -26,12 +26,11 @@ protected:
     const WeightsLoader& weightsLoader;
 
     int order1, order2;
-    double error, result;
+    double result, error;
     std::optional<double> lowerLimit, upperLimit;
+    const std::string method;  // Now enforced at compile time!    
     std::vector<double> nodes1, weights1;
     std::vector<double> nodes2, weights2;
-
-    const std::string method;  // Now enforced at compile time!
 
 public:
     // Constructor requires `method` assignment in derived classes
